@@ -1,0 +1,15 @@
+{
+  "cpu": "Intel64 Family 6 Model 198 Stepping 2, GenuineIntel",
+  "machine": "DESKTOP-GOLKTML",
+  "n": 30,
+  "gray": {
+    "mean_ms": 81.98,
+    "median_ms": 83.31,
+    "fps": 12.2
+  },
+  "ciecam02": {
+    "mean_ms": 2263.39,
+    "median_ms": 2264.38,
+    "fps": 0.44
+  }
+}
