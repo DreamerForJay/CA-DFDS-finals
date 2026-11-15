@@ -28,6 +28,7 @@
   - SAM 框選與手繪遮罩的 IoU 平均 0.945。
   - 新檔案：`results/method_comparison.*`、`deep_baselines.csv`、`calibration_methods.json`、`gui_v2_*.png`。
 - **新增 [docs/ARCHITECTURE.md](ARCHITECTURE.md)**：整體流程、遮罩說明（目前用手繪遮罩，SAM 和 YOLO 的差異）、方法比較與公平性說明、硬體。
+- NEXT_EXPERIMENTS.md：M3、M4 改為 🔄 並註明已量測與尚缺項目；新增「與單張深度模型比較」✅。
 - 更新：GUI_DEMO.md（v2 操作）、AGENTS.md、README、IMPROVEMENT_PLAN（C3 🔄、C6、新增 C7 ✅、C8 ⬜）、`logs/gui_screenshots.py`（改呼叫 `--screenshot`）。
 
 ## 2026-11-15｜GUI demo 啟動方式與進度紀錄

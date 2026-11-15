@@ -15,6 +15,8 @@
 
 ### 下一步候選（尚未開始）
 
+**以 repo 擁有者整理的 [docs/NEXT_EXPERIMENTS.md](docs/NEXT_EXPERIMENTS.md)（M1–M10）為優先順序**，完成後更新該表狀態。以下為補充：
+
 1. 黑色校正資料決定後，重跑任務 B／E 並更新 `RESULTS.md`。
 2. 改善計畫中的 ⬜ 項目，例如：YOLO → SAM 全自動遮罩（C3／C8）、用 SAM 遮罩重跑表 8、深度模型加線性校正的公平對照、以 GPU 加速 CIECAM02、找回近距離 GUI。
 3. rclone 共用 client_id 停用前，改用自己的 client_id（第 4 節）。
