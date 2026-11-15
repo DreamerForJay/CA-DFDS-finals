@@ -30,13 +30,14 @@
 |---|---|---|---|
 | C1 | CIECAM02 最終版本處理時間（同一台 RTX 5080） | 74.41 ms 為灰階版本；本機 CPU 量測 CIECAM02 約為灰階之 23 倍 | ✅ 2026-11-15：同一台 RTX 5080 主機（CPU 運算）灰階 81.98 ms、CIECAM02 2263 ms（27.6 倍） |
 | C2 | CIECAM02 加速 | 查表（3D LUT）或 GPU（CuPy／PyTorch）實作色彩轉換 | ⬜ |
-| C3 | 自動遮罩 | 以 YOLO 分割或 SAM 2 取代人工遮罩，並量測含遮罩之完整時間 | 🔄 2026-11-16：SAM ViT-B 框選已整合進 GUI 和 `baselines/`。以手繪遮罩外框當提示時，IoU 平均 0.945，約 110 ms（GPU）。尚缺：YOLO 自動產生框，以及用 SAM 遮罩重跑表 8 |
+| C3 | 自動遮罩 | 以 YOLO 分割或 SAM 2 取代人工遮罩，並量測含遮罩之完整時間 | ✅ 2026-11-16：YOLO11m → SAM 全自動遮罩（含近距離後備），IoU 0.906，CA-DFDS RMSE 0.310 m（RESULTS 補充 J） |
 | C7 | 近距離版本 GUI（作品說明書圖 5） | 實驗室電腦未找到原始碼；候選 old/test_carla.ipynb 為 OpenCV 點選工具，待學長確認 | ⬜ |
 | C4 | 邊緣裝置（Jetson Orin Nano）部署與實測 | 成本估算之依據 | ⬜ |
 | C5 | 對焦距離與測距範圍之設計規則 | 由式 (1) 推導可用測距區間與對焦距離之關係 | ⬜ |
 | C6 | 現場 GUI（`gui_demo.py`） | 載圖、遮罩、估測距離 | ✅ 初版；2026-11-15 現場測試正常（RESULTS 任務 G）。2026-11-16 v2：6 種方法同時比較、資料集瀏覽、自動遮罩／SAM 框選、硬體偵測、即時計時（docs/GUI_DEMO.md） |
-| C7 | 與單張深度模型比較 | 同一批影像比較 UniDepth V2、ML-Depth-Pro | ✅ 2026-11-16：480 張整體 RMSE：CA-DFDS 0.337 m、UniDepth 1.879 m、Depth Pro 0.871 m（RESULTS 補充 H）。可補做：深度模型加線性校正後的公平對照 |
-| C8 | YOLO → SAM → CA-DFDS 全自動流程 | 現場不需人工標遮罩 | ⬜ |
+| C7 | 與單張深度模型比較 | 同一批影像比較 UniDepth V2、ML-Depth-Pro | ✅ 2026-11-16：480 張整體 RMSE：CA-DFDS 0.337 m、UniDepth 1.879 m、Depth Pro 0.871 m（RESULTS 補充 H）。2026-11-16 已補做線性校正：UniDepth 0.357 m、Depth Pro 0.751 m（RESULTS 補充 J） |
+| C8 | YOLO → SAM → CA-DFDS 全自動流程 | 現場不需人工標遮罩 | ✅ 2026-11-16：GUI「自動偵測」與影片模式 |
+| C9 | 近距離 CA-DFDS ＋ 遠距離深度模型融合 | 兩類方法誤差互補（≤ 3.7 m 對 ≥ 4.2 m） | ⬜ |
 
 ## D. 論文寫作（後續投稿）
 

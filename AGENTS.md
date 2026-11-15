@@ -9,8 +9,9 @@
 - **待決事項**：校正用黑色車影像已於 2026-07-31 重新產生，論文校正曲線（R² 0.969）無法以現有資料重現（現為 0.942）。需由學長／指導教授決定以哪一版為準（報告第 4 節）。
 - 改善計畫的剩餘項目見 [docs/IMPROVEMENT_PLAN.md](docs/IMPROVEMENT_PLAN.md)（⬜／🔄）。
 - 整體架構、遮罩方式（目前是手繪遮罩，SAM 已整合進 GUI，YOLO 尚未使用）、與其他方法比較：見 [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)。
-- GUI demo v2（2026-11-16）：點兩下 `run_gui.bat`。可同時比較 6 種方法，SAM 框選，並偵測硬體。說明見 [docs/GUI_DEMO.md](docs/GUI_DEMO.md)。
-- 方法比較（480 張，整體 RMSE）：CA-DFDS 0.337 m、灰階 0.362 m、Depth Pro 0.871 m、UniDepth 1.879 m（RESULTS 補充 H）。
+- GUI demo v3（2026-11-16）：點兩下 `run_gui.bat`。可同時比較 6 種方法，全自動遮罩（YOLO → SAM）、可調整的框、影片輸入，並偵測硬體。說明見 [docs/GUI_DEMO.md](docs/GUI_DEMO.md)。
+- 方法比較（480 張，整體 RMSE）：CA-DFDS 0.337 m、灰階 0.362 m；UniDepth 原始 1.879 m、線性校正 **0.357 m**；Depth Pro 原始 0.871 m、線性校正 0.751 m。全自動遮罩下 CA-DFDS 為 0.310 m（RESULTS 補充 H、J）。
+- **報告口徑**：公平比較時，CA-DFDS 與 UniDepth 準確度相當；CA-DFDS 近距離（≤ 3.7 m）較準，UniDepth 遠距離較準。不要寫「大幅勝過深度模型」。
 - 成果已上傳 Google Drive（第 4 節）；commit 作者已修正為 DreamerForJay。
 
 ### 下一步候選（尚未開始）
@@ -46,7 +47,7 @@
 | 測試集 | `<DATA>/firetruck_<色>/Test_dataset_Focus1500cm_f1.4_f22.0`（1.2–7.2 m；遮罩只有 T1–T12 → 實際 1.2–6.7 m） |
 | 共用測試遮罩 | `<DATA>/firetruck_black/Test_dataset_Focus1500cm_f1.4_f22.0_mask`（各色遮罩已驗證完全相同） |
 | 學長原始程式 | `Carla-0.10.0-Win64-Shipping/test_ciecam.ipynb`（已複製到 `results/original_code/`） |
-| torch 環境 | `D:\Carla-0.10.0-Win64-Shipping\.venv`（torch 2.11 + cu128、segment_anything、UniDepth、Depth Pro；RTX 5080 可用）。GUI 會自動以子程序啟動 `baselines/deep_worker.py`。模型權重在 `Carla-0.10.0-Win64-Shipping/models*`；UniDepth 權重在 HuggingFace 快取，需設定 `HF_HUB_OFFLINE=1` |
+| torch 環境 | `D:\Carla-0.10.0-Win64-Shipping\.venv`（torch 2.11 + cu128、ultralytics 8.4（YOLO11m）、segment_anything、UniDepth、Depth Pro；RTX 5080 可用）。GUI 會自動以子程序啟動 `baselines/deep_worker.py`。模型權重在 `Carla-0.10.0-Win64-Shipping/models*`；UniDepth 權重在 HuggingFace 快取，需設定 `HF_HUB_OFFLINE=1` |
 | rclone | `D:\Carla-0.10.0-Win64-Shipping\tools\rclone\rclone.exe`，remote 名稱 `cadfds_gdrive`（設定檔在使用者 AppData，勿提交） |
 
 注意：PowerShell 的萬用字元路徑（如 `T*\R`）可能不展開，統計檔案請用 Git Bash。
@@ -69,8 +70,9 @@ bash logs/run_taskA.sh
 # 表 8／19 色評估（會改寫 calibration_opt.json 到 --out 的資料夾）
 python evaluate.py --calib features/cal_white.npz features/cal_gray.npz features/cal_black.npz --test features/test_*.npz --out results/xxx.csv
 # 方法比較：深度模型批次評估（torch 環境）→ 校正曲線 → 合併比較表
-../.venv/Scripts/python.exe baselines/eval_deep.py --sam --out results/deep_baselines.csv
-python scripts/build_calibrations.py && python scripts/compare_methods.py
+../.venv/Scripts/python.exe baselines/eval_deep.py --set test --sam --auto --out results/deep_baselines.csv
+../.venv/Scripts/python.exe baselines/eval_deep.py --set calib --colors white gray black --out results/deep_calib.csv
+python scripts/build_calibrations.py && python scripts/eval_auto_mask.py && python scripts/compare_methods.py
 # 開啟 GUI demo（或直接點兩下 run_gui.bat）
 .venv-cadfds/Scripts/python.exe gui_demo.py
 # GUI 自動截圖

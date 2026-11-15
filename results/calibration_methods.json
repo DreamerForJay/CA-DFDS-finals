@@ -63,5 +63,23 @@
       12.622608908287022
     ]
   },
+  "unidepth_lin": {
+    "model": "unidepth",
+    "coef_cm": [
+      91.03989194381363,
+      -143.41078890731157
+    ],
+    "r2": 0.8963,
+    "formula": "d_cm = c1*pred_m + c0 (linear calibration on the calibration set)"
+  },
+  "depthpro_lin": {
+    "model": "depthpro",
+    "coef_cm": [
+      118.3286243579278,
+      -15.642400227919493
+    ],
+    "r2": 0.9088,
+    "formula": "d_cm = c1*pred_m + c0 (linear calibration on the calibration set)"
+  },
   "_note": "calib = cal_white + cal_gray + cal_black, per-distance mean, quadratic fit (scripts/build_calibrations.py)"
 }

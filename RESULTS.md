@@ -181,18 +181,46 @@
   - 紀錄：`logs/deep_baselines.log`
 - 解讀與公平性說明見 [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) 第 4 節。
 
-## 補充 I｜GUI v2（2026-11-16）
+## 補充 I｜GUI v2 → v3（2026-11-16）
 
-- 功能：
-  - 6 種方法同時比較，結果表、距離數線、影像標籤即時更新。
-  - 資料集瀏覽器：車色選單、距離滑桿、張數。
-  - 遮罩：自動載入手繪遮罩，或 SAM 框選、手動塗抹；SAM 與手動遮罩會顯示和手繪遮罩的 IoU。
-  - 自動偵測 CPU、GPU 型號，顯示即時計時。
-- 截圖：`results/gui_v2_1.png`（紅色車 3.2 m）、`results/gui_v2_2.png`（藍色車 6.2 m）。
+- v2 截圖已由 v3 取代，v2 的檔案已刪除。
+- v3 說明見 [docs/GUI_DEMO.md](docs/GUI_DEMO.md)，截圖為 `results/gui_v3_*.png`。
 
-| 截圖 | 真實距離 | CA-DFDS | 灰階 | UniDepth | Depth Pro | 總時間 |
-|---|---|---|---|---|---|---|
-| gui_v2_1（red T05 shot01） | 3.20 m | 3.04 m（−0.16） | 3.10 m（−0.10） | 4.97 m（+1.77） | 3.53 m（+0.33） | 1.70 s |
-| gui_v2_2（blue T11 shot03） | 6.20 m | 6.43 m（+0.23） | 6.44 m（+0.24） | 8.35 m（+2.15） | 4.96 m（−1.24） | 0.91 s |
+## 補充 J｜深度模型線性校正，以及全自動遮罩（YOLO11 → SAM）（2026-11-16）
 
-- 說明：[docs/GUI_DEMO.md](docs/GUI_DEMO.md)。截圖只擷取 GUI 視窗本身（PrintWindow），其他視窗不會被拍進去。
+- **深度模型線性校正**：用和 CA-DFDS 相同的校正集（白、灰、黑 × 1.0–7.0 m × 10 張，共 390 張）擬合 d = a·預測 + b。
+  - UniDepth：0.910·預測 − 1.43 m，R² 0.896。
+  - Depth Pro：1.183·預測 − 0.16 m，R² 0.909。
+- **全自動遮罩**：
+  - 流程：YOLO11m 偵測 car/bus/truck，取最大框 → SAM ViT-B 依框分割。
+  - YOLO 沒偵測到時，用近距離後備：整幅框和中下方框各跑一次 SAM，取分數高者。
+  - YOLO 偵測率：1.2–2.7 m 幾乎為 0，3.2 m 為 50%，3.7 m 以上 100%。480 張中 170 張使用後備。
+  - 和手繪遮罩的 IoU：平均 0.906（YOLO 0.925、後備 0.873），最低 0.660。
+  - 時間：YOLO 約 13 ms、SAM 約 105 ms（GPU）。
+
+| 方法 | 手繪遮罩 RMSE (m) | 全自動遮罩 RMSE (m) |
+|---|---|---|
+| CA-DFDS（本研究） | 0.337 | **0.310** |
+| CA-DFDS 重新最佳化 | 0.314 | 0.289 |
+| CA-DFDS 只用 J | 0.313 | 0.290 |
+| 灰階 DFD | 0.362 | 0.325 |
+| UniDepth V2（原始／線性校正） | 1.879／**0.357** | 1.883／0.355 |
+| ML-Depth-Pro（原始／線性校正） | 0.871／0.751 | 0.870／0.750 |
+
+**各距離 RMSE（手繪遮罩）**：
+
+- CA-DFDS 在 1.2–3.7 m 為 0.14–0.33 m，UniDepth（線性校正）為 0.35–0.55 m。
+- 4.2–6.7 m 則是 UniDepth 較好：0.12–0.22 m，CA-DFDS 為 0.26–0.51 m。
+- 兩者互補，完整表格見 [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) 第 4.3 節。
+
+**結論**：
+
+- 公平比較（深度模型也校正）時，UniDepth 和 CA-DFDS 的整體準確度相當。CA-DFDS 的優勢在近距離、可解釋，以及不需要 GPU。
+- 全自動遮罩不會讓 CA-DFDS 變差，現場可以不用人工遮罩。
+
+**檔案**：
+
+- 結果：`results/deep_baselines.csv`（測試集，含自動遮罩欄位）、`results/deep_calib.csv`（校正集）、`results/calibration_methods.json`、`results/method_comparison.*`
+- 特徵：`features/test_auto_*.npz`
+- 紀錄：`logs/deep_baselines.log`、`logs/deep_calib.log`
+- 自動遮罩 `.npy` 在 `logs/scratch/auto_masks/`，未提交，可用 `baselines/eval_deep.py --auto` 重新產生。

@@ -1,0 +1,33 @@
+calib: 390 images, device=cuda
+D:\Carla-0.10.0-Win64-Shipping\.venv\Lib\site-packages\timm\models\layers\__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+D:\Carla-0.10.0-Win64-Shipping\Carla-0.10.0-Win64-Shipping\models_unidepth_repo\unidepth\utils\chamfer_distance.py:9: UserWarning: !! To run evaluation you need KNN. Please compile KNN: `cd unidepth/ops/knn with && bash compile.sh`.
+  warnings.warn(
+xFormers not available
+xFormers not available
+D:\Carla-0.10.0-Win64-Shipping\Carla-0.10.0-Win64-Shipping\models_unidepth_repo\unidepth\models\unidepthv2\unidepthv2.py:262: UserWarning: !! self.resolution_level not set, using default bounds !!
+  warnings.warn("!! self.resolution_level not set, using default bounds !!")
+Cannot import NystromAttention, you can not run original UniDepth. UniDepthV2 is available.
+Not loading pretrained weights for backbone
+EdgeGuidedLocalSSI reverts to a non cuda-optimized operation, you will experince large slowdown, please install it:  `cd ./unidepth/ops/extract_patches && bash compile.sh`
+20/390 white T02 gt=1.5 uni=4.3661 dp=1.0254
+40/390 white T04 gt=2.5 uni=4.6242 dp=2.2363
+60/390 white T06 gt=3.5 uni=5.0694 dp=3.832
+80/390 white T08 gt=4.5 uni=6.1474 dp=4.2227
+100/390 white T10 gt=5.5 uni=7.2391 dp=4.9297
+120/390 white T12 gt=6.5 uni=8.7639 dp=5.7773
+140/390 gray T01 gt=1.0 uni=4.2793 dp=1.3584
+160/390 gray T03 gt=2.0 uni=4.2384 dp=1.6348
+180/390 gray T05 gt=3.0 uni=4.7259 dp=2.5527
+200/390 gray T07 gt=4.0 uni=5.7135 dp=3.8789
+220/390 gray T09 gt=5.0 uni=6.4574 dp=4.625
+240/390 gray T11 gt=6.0 uni=7.9892 dp=5.0781
+260/390 gray T13 gt=7.0 uni=9.1135 dp=5.5508
+280/390 black T02 gt=1.5 uni=3.7828 dp=1.0186
+300/390 black T04 gt=2.5 uni=3.3842 dp=1.5811
+320/390 black T06 gt=3.5 uni=4.8328 dp=3.3457
+340/390 black T08 gt=4.5 uni=6.5158 dp=3.6016
+360/390 black T10 gt=5.5 uni=7.5782 dp=4.4375
+380/390 black T12 gt=6.5 uni=9.3087 dp=5.0586
+390/390 black T13 gt=7.0 uni=9.7428 dp=5.2227
+saved results/deep_calib.csv

@@ -4,6 +4,32 @@
 
 ---
 
+## 2026-11-16｜深度模型線性校正、全自動遮罩（YOLO → SAM）、GUI v3
+
+執行者：Claude Code（實驗室 RTX 5080 主機），應 repo 擁有者要求
+
+- **深度模型線性校正（公平比較）**：
+  - 新增 `results/deep_calib.csv`：在 CA-DFDS 校正集上跑 UniDepth、Depth Pro，共 390 張。
+  - `scripts/build_calibrations.py` 擬合 `unidepth_lin`、`depthpro_lin`。
+  - 結果：UniDepth 1.879 → **0.357 m**，Depth Pro 0.871 → 0.751 m。CA-DFDS 為 0.337 m。
+- **全自動遮罩**：
+  - torch 環境安裝 `ultralytics` 8.4.214，權重放在 `models/yolo11m.pt`。只新增套件，沒有更動 torch、numpy、OpenCV 等原有套件。
+  - `deep_worker.py` 新增 `detect`、`auto`：YOLO → SAM，影片追蹤，近距離後備。
+  - `eval_deep.py` 新增 `--set calib` 和 `--auto`；新增 `scripts/eval_auto_mask.py`。
+  - 結果：IoU 0.906；CA-DFDS 在全自動遮罩下 RMSE 0.310 m。
+- **GUI v3**（`gui_demo.py`）：
+  - 重新排版：頁首（含硬體狀態）、左欄步驟卡片、中間影像、右欄結果卡片。
+  - 可調整框：拖角點和邊調大小、拖框內移動、滾輪縮放，SAM 即時重新分割。
+  - 遮罩新增「自動偵測」；輸入新增影片模式（播放，每 N 格處理一次）。
+  - 只有主方法有完整說明，其他方法以滑鼠提示呈現。
+  - 深度模型可切換原始輸出或線性校正。
+  - 分項計時以兩欄顯示。
+- 新增 `scripts/make_test_video.py`（測試影片）；`compare_methods.py` 改為同時輸出手繪和自動遮罩兩組結果。
+- 文件：
+  - ARCHITECTURE.md 改寫：遮罩來源、三個 CA-DFDS 版本的差別、全自動流程、公平比較與各距離分析。
+  - 更新 GUI_DEMO.md（v3）、RESULTS 補充 J、AGENTS（報告口徑）、NEXT_EXPERIMENTS（M4 ✅）、IMPROVEMENT_PLAN（C3、C8 ✅，新增 C9）。
+- 截圖：`results/gui_v3_1`–`5`，v2 截圖已刪除。
+
 ## 2026-11-16｜GUI v2（方法比較）、UniDepth／Depth Pro／SAM 比較、架構說明
 
 執行者：Claude Code（實驗室 RTX 5080 主機），應 repo 擁有者要求

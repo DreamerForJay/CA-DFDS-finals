@@ -10,7 +10,10 @@ Protocol (one JSON object per line):
   {"cmd": "sam", "image": p, "point": [x, y], "out": npy}  → SAM ViT-B single-point segmentation, mask saved to the out .npy
   {"cmd": "depth", "model": "unidepth"|"depthpro", "image": p, "mask": npy}
                                                            → median/mean metric depth inside the mask (m) and inference time
+  {"cmd": "detect", "image": p}                            → YOLO11 vehicle boxes [{box, cls, conf}] (car/bus/truck/motorcycle)
+  {"cmd": "auto", "image": p, "out": npy}                  → YOLO picks the largest vehicle box → SAM segments it by box (fully automatic mask, no manual work)
   {"cmd": "quit"}
+image may also be a .npy (H×W×3 BGR array, used for video frames to skip PNG encoding).
 Every reply carries "ok": true/false; on failure it carries "error".
 
 Can also be run directly for testing: python deep_worker.py --selftest <image> <mask.npy>
@@ -22,6 +25,8 @@ SAM_CKPT = os.path.join(BASE, 'models', 'sam_vit_b_01ec64.pth')
 DEPTHPRO_REPO = os.path.join(BASE, 'models_depthpro_repo')
 UNIDEPTH_REPO = os.path.join(BASE, 'models_unidepth_repo')
 UNIDEPTH_ID = 'lpiccinelli/unidepth-v2-vits14'
+YOLO_W = os.path.join(BASE, 'models', os.environ.get('CADFDS_YOLO', 'yolo11m.pt'))
+VEHICLE = {2: 'car', 3: 'motorcycle', 5: 'bus', 7: 'truck'}   # COCO classes
 
 # CARLA camera: 2048x1536, 40 mm lens, 36 mm sensor width (get_dataset2.py)
 def f_px(width, lens_mm=40.0, sensor_mm=36.0):
@@ -51,6 +56,8 @@ def _sync():
 
 def imread(p):
     _lazy_imports()
+    if p.lower().endswith('.npy'):
+        return np.load(p)
     return cv2.imdecode(np.fromfile(p, np.uint8), cv2.IMREAD_COLOR)
 
 
@@ -64,7 +71,7 @@ def info():
                  sm=f'{p.major}.{p.minor}')
     d['models'] = {'sam': os.path.exists(SAM_CKPT),
                    'depthpro': os.path.exists(os.path.join(DEPTHPRO_REPO, 'checkpoints', 'depth_pro.pt')),
-                   'unidepth': True}
+                   'unidepth': True, 'yolo': os.path.exists(YOLO_W)}
     return d
 
 
@@ -99,10 +106,69 @@ def get_unidepth():
     return _models['unidepth']
 
 
-def sam(image, point, out, box=None):
-    img = imread(image); pred = get_sam()
+def get_yolo():
+    if 'yolo' not in _models:
+        from ultralytics import YOLO
+        _models['yolo'] = YOLO(YOLO_W)
+    return _models['yolo']
+
+
+def detect(image, conf=0.25, img=None):
+    img = imread(image) if img is None else img
     _sync(); t0 = time.perf_counter()
-    pred.set_image(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
+    r = get_yolo().predict(img, conf=conf, classes=list(VEHICLE), verbose=False, device=0 if device() == 'cuda' else 'cpu')[0]
+    _sync(); ms = 1000 * (time.perf_counter() - t0)
+    dets = [{'box': [float(v) for v in b.xyxy[0].tolist()], 'cls': VEHICLE.get(int(b.cls), str(int(b.cls))), 'conf': float(b.conf)}
+            for b in r.boxes]
+    dets.sort(key=lambda d: -(d['box'][2] - d['box'][0]) * (d['box'][3] - d['box'][1]))   # largest (usually nearest) first
+    return {'dets': dets, 'ms': ms}
+
+
+FALLBACK_BOXES = [(0.0, 0.0, 1.0, 1.0), (0.03, 0.02, 0.97, 0.85)]   # relative coordinates: full frame, centre-lower region
+
+
+def auto(image, out, prev_box=None):
+    """Fully automatic mask. Three-level strategy:
+    1. YOLO11 detects vehicles (car/bus/truck/motorcycle) → take the largest box (usually the nearest vehicle ahead) → SAM by box.
+    2. YOLO finds nothing but the previous frame had a box (video) → previous box expanded 5% → SAM (tracking).
+    3. Neither → near-range vehicle-ahead assumption: under 2.7 m the car fills the frame (only the rear panel, no wheels), which YOLO
+       cannot recognise as a vehicle → run SAM with a full-frame box and a centre-lower box and keep the higher-scoring mask.
+       Tested 2026-11-16: IoU 0.99 at 1.2 m, 0.91–0.96 at 1.7–3.2 m.
+    """
+    img = imread(image); H, W = img.shape[:2]; d = detect(image, img=img)
+    if d['dets']:
+        b = d['dets'][0]['box']; src = 'yolo'
+        r = sam(image, [(b[0] + b[2]) / 2, (b[1] + b[3]) / 2], out, b, img=img)
+    elif prev_box is not None:
+        x0, y0, x1, y1 = prev_box; dx, dy = 0.05 * (x1 - x0), 0.05 * (y1 - y0)
+        b = [max(x0 - dx, 0), max(y0 - dy, 0), min(x1 + dx, W), min(y1 + dy, H)]; src = 'track'
+        r = sam(image, [(b[0] + b[2]) / 2, (b[1] + b[3]) / 2], out, b, img=img)
+    else:
+        src = 'fallback'; best = None
+        for i, fb in enumerate(FALLBACK_BOXES):
+            bb = [fb[0] * W, fb[1] * H, fb[2] * W, fb[3] * H]
+            rr = sam(image, [W / 2, H * 0.4], out + f'.{i}.npy', bb, img=img, reuse=i > 0)
+            if best is None or rr['score'] > best[0]['score']:
+                best = (rr, bb)
+        r, b = best; os.replace(r['mask'], out); r['mask'] = out
+        for i in range(len(FALLBACK_BOXES)):
+            p = out + f'.{i}.npy'
+            if os.path.exists(p):
+                os.remove(p)
+    m = np.load(out) > 0
+    if m.any():   # report the mask's actual bounding box (used for tracking in the next video frame)
+        ys, xs = np.nonzero(m); mbox = [float(xs.min()), float(ys.min()), float(xs.max()), float(ys.max())]
+    else:
+        mbox = b
+    return {'found': True, 'source': src, 'dets': d['dets'], 'box': [float(v) for v in b], 'mask_box': mbox,
+            'det_ms': d['ms'], 'sam_ms': r['ms'], 'score': r['score'], 'mask': out}
+
+
+def sam(image, point, out, box=None, img=None, reuse=False):
+    img = imread(image) if img is None else img; pred = get_sam()
+    _sync(); t0 = time.perf_counter()
+    if not reuse:          # reuse=True: same image, skip re-encoding (saves about 100 ms)
+        pred.set_image(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
     kw = dict(point_coords=np.array([point], float), point_labels=np.array([1]), multimask_output=True)
     if box is not None:
         kw['box'] = np.array(box, float)
@@ -151,6 +217,10 @@ def handle(req):
         return sam(req['image'], req['point'], req['out'], req.get('box'))
     if c == 'depth':
         return depth(req['model'], req['image'], req['mask'])
+    if c == 'detect':
+        return detect(req['image'], req.get('conf', 0.25))
+    if c == 'auto':
+        return auto(req['image'], req['out'], req.get('prev_box'))
     if c == 'warmup':
         # Load the models and run one inference on a dummy image so the first real call doesn't pay CUDA kernel-compile cost
         import tempfile
@@ -159,7 +229,9 @@ def handle(req):
         cv2.imwrite(ip, np.random.default_rng(0).integers(0, 255, (1536, 2048, 3), dtype=np.uint8))
         np.save(mp, np.ones((1536, 2048), np.uint8))
         for k in req.get('models', []):
-            if k == 'sam':
+            if k == 'yolo':
+                detect(ip)
+            elif k == 'sam':
                 sam(ip, [1024, 768], os.path.join(d, 's.npy'), [500, 400, 1500, 1100])
             else:
                 depth(k, ip, mp)
