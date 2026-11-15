@@ -16,6 +16,11 @@
 2. **上傳 Google Drive**（<https://drive.google.com/drive/folders/1L9zNHvzAKqQlTgFMuWbNuePYAKy4IThV>）
    - 工具：rclone v1.76.0（官方免安裝版，已驗證 SHA256），放在 `D:\Carla-0.10.0-Win64-Shipping\tools\rclone\`；remote `cadfds_gdrive` 以 `root_folder_id` 限定只能操作上述資料夾，由使用者於瀏覽器授權。
    - 上傳：`CA-DFDS-finals/`（repo 鏡像，不含 `.git`、`.venv-cadfds`、`logs/bin`、`logs/scratch`）與 `cadfds_results_20261115.zip`（成果壓縮檔）。
+     - `CA-DFDS-finals/`：<https://drive.google.com/drive/folders/1dhRViJVTi19B6Qj7G2V88P_CmXReAIpD>（71 個檔案，`rclone check` 0 差異）
+     - `cadfds_results_20261115.zip`（7.3 MB）：<https://drive.google.com/file/d/1yFIqqWjWMSxpD6vyn_aymB_9c4OBez7Q/view>
+     - 內容：`results/`、`features/`、`logs/*.log|*.sh|*.py`、`RESULTS.md`、`AGENTS.md`、`docs/`
+     - 分享權限沿用 Drive 父資料夾設定，未另外開放。
+     - 過程中遇到 rclone 共用 client_id 被限流（403 Quota exceeded），以限速重試解決。
    - 新增 `scripts/sync_drive.sh` 供之後同步使用。
 3. **協作說明**：新增 [AGENTS.md](../AGENTS.md)（環境、資料位置、Git 身分、Drive 同步、協作規則）、`CLAUDE.md`（指向 AGENTS.md）與本 CHANGELOG；README 開頭加上指引。
 

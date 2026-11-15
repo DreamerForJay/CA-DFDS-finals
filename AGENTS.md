@@ -42,8 +42,8 @@
 
 - 位置：<https://drive.google.com/drive/folders/1L9zNHvzAKqQlTgFMuWbNuePYAKy4IThV>
 - 內容配置：
-  - `CA-DFDS-finals/`：本 repo 的鏡像（不含 `.git`、venv、ffmpeg）
-  - `cadfds_results_<日期>.zip`：每次實驗之成果壓縮檔（README 第 3 節回傳清單）
+  - `CA-DFDS-finals/`：本 repo 的鏡像（不含 `.git`、venv、ffmpeg）— <https://drive.google.com/drive/folders/1dhRViJVTi19B6Qj7G2V88P_CmXReAIpD>
+  - `cadfds_results_<日期>.zip`：每次實驗之成果壓縮檔（README 第 3 節回傳清單）；2026-11-15 版：<https://drive.google.com/file/d/1yFIqqWjWMSxpD6vyn_aymB_9c4OBez7Q/view>
   - 其他檔案（論文、說明書、會議報告等）為使用者原有內容，**不要刪改**
 - 同步：在 repo 根目錄執行 `bash scripts/sync_drive.sh`（先加 `--dry-run` 檢查）。只會改動 `CA-DFDS-finals/` 子資料夾與 zip。
 - rclone 使用內建共用 client_id，偶爾回 `403 Quota exceeded`，腳本已限速重試；若持續失敗，等幾分鐘再試，或依 <https://rclone.org/drive/#making-your-own-client-id> 建立自己的 client_id（該共用 client_id 將於 2026 年內停用）。
