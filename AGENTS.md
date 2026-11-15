@@ -9,7 +9,7 @@
 - **待決事項**：校正用黑色車影像已於 2026-07-31 重新產生，論文校正曲線（R² 0.969）無法以現有資料重現（現為 0.942）。需由學長／指導教授決定以哪一版為準（報告第 4 節）。
 - 改善計畫的剩餘項目見 [docs/IMPROVEMENT_PLAN.md](docs/IMPROVEMENT_PLAN.md)（⬜／🔄）。
 - 整體架構、遮罩方式（目前是手繪遮罩，SAM 已整合進 GUI，YOLO 尚未使用）、與其他方法比較：見 [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)。
-- GUI demo v3（2026-11-16）：點兩下 `run_gui.bat`。可同時比較 6 種方法，全自動遮罩（YOLO → SAM）、可調整的框、影片輸入，並偵測硬體。說明見 [docs/GUI_DEMO.md](docs/GUI_DEMO.md)。
+- GUI：**新版 v3** 是 `gui_new_v3.py`，點兩下 `run_gui_new.bat` 開啟；**學長舊版** 是 `gui_old_senior.py`（`run_gui_old_senior.bat`），保留作對照，不再修改。新版可同時比較 6 種方法，全自動遮罩（YOLO → SAM）、可調整的框、影片輸入，並偵測硬體。說明見 [docs/GUI_DEMO.md](docs/GUI_DEMO.md)。
 - 方法比較（480 張，整體 RMSE）：CA-DFDS 0.337 m、灰階 0.362 m；UniDepth 原始 1.879 m、線性校正 **0.357 m**；Depth Pro 原始 0.871 m、線性校正 0.751 m。全自動遮罩下 CA-DFDS 為 0.310 m（RESULTS 補充 H、J）。
 - **報告口徑**：公平比較時，CA-DFDS 與 UniDepth 準確度相當；CA-DFDS 近距離（≤ 3.7 m）較準，UniDepth 遠距離較準。不要寫「大幅勝過深度模型」。
 - 成果已上傳 Google Drive（第 4 節）；commit 作者已修正為 DreamerForJay。
@@ -73,8 +73,8 @@ python evaluate.py --calib features/cal_white.npz features/cal_gray.npz features
 ../.venv/Scripts/python.exe baselines/eval_deep.py --set test --sam --auto --out results/deep_baselines.csv
 ../.venv/Scripts/python.exe baselines/eval_deep.py --set calib --colors white gray black --out results/deep_calib.csv
 python scripts/build_calibrations.py && python scripts/eval_auto_mask.py && python scripts/compare_methods.py
-# 開啟 GUI demo（或直接點兩下 run_gui.bat）
-.venv-cadfds/Scripts/python.exe gui_demo.py
+# 開啟新版 GUI v3（或點兩下 run_gui_new.bat）；學長舊版：gui_old_senior.py / run_gui_old_senior.bat
+.venv-cadfds/Scripts/python.exe gui_new_v3.py
 # GUI 自動截圖
 python logs/gui_screenshots.py results <影像> <遮罩> [...]
 # 同步 Drive

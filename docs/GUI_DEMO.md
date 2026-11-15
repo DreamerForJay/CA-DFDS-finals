@@ -1,31 +1,39 @@
-# GUI Demo v3（2026-11-16）：方法比較介面
+# GUI Demo：新版 v3 與學長舊版
 
-`gui_demo.py` 是現場展示用介面：
+| 版本 | 程式 | 啟動 | 內容 |
+|---|---|---|---|
+| **新版 v3**（2026-11-16） | `gui_new_v3.py` | 點兩下 `run_gui_new.bat` | 6 種方法同時比較、全自動遮罩（YOLO → SAM）、可調整的框、影片、硬體偵測 |
+| **學長舊版** | `gui_old_senior.py` | 點兩下 `run_gui_old_senior.bat` | 學長方法（論文權重）單一方法：開啟影像 → 載入遮罩 → 估測距離。截圖：`results/gui_old_senior_1–3.png` |
+
+- 學長舊版就是 repo 最初的 `gui_demo.py`，2026-11-16 改名保留作對照，程式邏輯沒有改。
+- 以下說明都是**新版 v3**。
+
+`gui_new_v3.py` 是現場展示用介面：
 
 - **同一張影像（或影片每一格）同時跑 6 種方法**，結果即時顯示。
 - 支援**全自動遮罩（YOLO → SAM）**、**可調整的框選**和**影片輸入**。
 
-![GUI v3 自動偵測](../results/gui_v3_2_auto.png)
+![GUI v3 自動偵測](../results/gui_new_v3_2_auto.png)
 
 截圖都在 `results/` 資料夾：
 
 | 檔案 | 內容 |
 |---|---|
-| `gui_v3_1_dataset.png` | 資料集手繪遮罩 |
-| `gui_v3_2_auto.png` | 自動偵測：YOLO 偵測到車 |
-| `gui_v3_3_video.png` | 影片模式 |
-| `gui_v3_4_box_bad.png` | 框沒框好的例子：IoU 0.33，誤差變大，說明遮罩品質的影響 |
-| `gui_v3_5_auto_near.png` | 1.7 m 近距離：YOLO 認不出，改用後備策略 |
+| `gui_new_v3_1_dataset.png` | 資料集手繪遮罩 |
+| `gui_new_v3_2_auto.png` | 自動偵測：YOLO 偵測到車 |
+| `gui_new_v3_3_video.png` | 影片模式 |
+| `gui_new_v3_4_box_bad.png` | 框沒框好的例子：IoU 0.33，誤差變大，說明遮罩品質的影響 |
+| `gui_new_v3_5_auto_near.png` | 1.7 m 近距離：YOLO 認不出，改用後備策略 |
 
 ## 1. 啟動
 
-**實驗室主機**：點兩下 repo 根目錄的 **`run_gui.bat`**。
+**實驗室主機**：點兩下 repo 根目錄的 **`run_gui_new.bat`**。
 
 也可以在終端機執行：
 
 ```bat
 cd /d D:\Carla-0.10.0-Win64-Shipping\CA-DFDS-finals
-.venv-cadfds\Scripts\python.exe gui_demo.py
+.venv-cadfds\Scripts\python.exe gui_new_v3.py
 ```
 
 - 頁首右側的燈號：

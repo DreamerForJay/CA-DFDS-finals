@@ -147,18 +147,20 @@
 2. **測試／推論程式**（cell 2、3）：**確認使用式 (5)**，即先加權 `w_j·lap_J + w_ac·lap_ac + w_bc·lap_bc` 再取遮罩內標準差；每距離 10 張先平均清晰度再代入曲線（逐距離協定）
 3. **近距離版本 GUI（作品說明書圖 5）**：**未找到**。唯一候選為 `old/test_carla.ipynb`（已複製為 `results/original_code/test_carla_candidate_gui.ipynb`），是 OpenCV 視窗、滑鼠點 4 點框選之雙光圈灰階 DFD 工具（Focus 50 cm），不是 tkinter／Qt 介面，無法確認是否為圖 5
 
-## 任務 G｜現場 GUI 測試
+## 任務 G｜現場 GUI 測試（學長舊版 GUI）
 
-- 指令：`python gui_demo.py --calibration results/calibration_opt.json`；截圖由 `logs/gui_screenshots.py` 自動操作同一個 GUI（代替檔案對話框選檔 → 載入遮罩 → 按「估測距離」→ 擷取視窗）
+> 2026-11-16 起，此版改名為 `gui_old_senior.py`（學長舊版），截圖改名為 `gui_old_senior_*.png`；新版為 `gui_new_v3.py`。
+
+- 指令：`python gui_old_senior.py --calibration results/calibration_opt.json`；截圖由 `logs/gui_screenshots.py` 自動操作同一個 GUI（代替檔案對話框選檔 → 載入遮罩 → 按「估測距離」→ 擷取視窗）
 - 結果：
 
 | 截圖 | 影像 | 清晰度 σ | 估測 | 真實 | 誤差 | 計算時間 |
 |---|---|---|---|---|---|---|
-| `results/gui_1.png` | 紅色車 T05 shot01 | 2.09 | 3.04 m | 3.20 m | −0.16 m | 3020 ms |
-| `results/gui_2.png` | 藍色車 T09 shot01 | 5.55 | 5.68 m | 5.20 m | +0.48 m | 2115 ms |
-| `results/gui_3.png` | 綠色車 T02 shot01 | 0.58 | 1.41 m | 1.70 m | −0.29 m | 2164 ms |
+| `results/gui_old_senior_1.png` | 紅色車 T05 shot01 | 2.09 | 3.04 m | 3.20 m | −0.16 m | 3020 ms |
+| `results/gui_old_senior_2.png` | 藍色車 T09 shot01 | 5.55 | 5.68 m | 5.20 m | +0.48 m | 2115 ms |
+| `results/gui_old_senior_3.png` | 綠色車 T02 shot01 | 0.58 | 1.41 m | 1.70 m | −0.29 m | 2164 ms |
 
-- 檔案：`results/gui_*.png`、`logs/gui_screenshots.py`、`logs/taskG.log`
+- 檔案：`results/gui_old_senior_*.png`、`logs/gui_screenshots.py`、`logs/taskG.log`
 - 備註：GUI 開啟、載入遮罩、估測、顯示真實距離與誤差皆正常；滑鼠塗抹遮罩功能未在本次截圖中測試
 
 ## 補充 H｜方法比較：CA-DFDS 對比灰階 DFD、UniDepth V2、ML-Depth-Pro（2026-11-16）
@@ -184,7 +186,7 @@
 ## 補充 I｜GUI v2 → v3（2026-11-16）
 
 - v2 截圖已由 v3 取代，v2 的檔案已刪除。
-- v3 說明見 [docs/GUI_DEMO.md](docs/GUI_DEMO.md)，截圖為 `results/gui_v3_*.png`。
+- v3 說明見 [docs/GUI_DEMO.md](docs/GUI_DEMO.md)，截圖為 `results/gui_new_v3_*.png`；程式為 `gui_new_v3.py`。
 
 ## 補充 J｜深度模型線性校正，以及全自動遮罩（YOLO11 → SAM）（2026-11-16）
 

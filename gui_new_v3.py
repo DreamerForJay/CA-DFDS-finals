@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""CA-DFDS 車距估測 GUI v3（現場 demo／方法比較用）。
+"""【新版 v3】CA-DFDS 車距估測 GUI（現場 demo／方法比較用）。舊版請見 gui_old_senior.py（學長舊版）。
 
 流程：① 輸入（資料集／影像檔／影片） → ② 車輛遮罩 → ③ 估測與比較
   遮罩四種來源：
@@ -10,7 +10,7 @@
   比較 6 種方法：CA-DFDS（本研究）、CA-DFDS 重新最佳化、CA-DFDS 只用 J、灰階 DFD、UniDepth V2、ML-Depth-Pro
     （深度模型可切換「原始輸出」或「線性校正」；校正用與 CA-DFDS 相同的校正集）
 CA-DFDS 在 CPU；YOLO／SAM／深度模型在 torch 環境的背景程式 baselines/deep_worker.py（GPU）。
-執行：python gui_demo.py [--image 影像 | --video 影片] [--mask 遮罩] [--mode auto|dataset|box|paint] [--screenshot out.png]
+執行：python gui_new_v3.py（或點兩下 run_gui_new.bat） [--image 影像 | --video 影片] [--mask 遮罩] [--mode auto|dataset|box|paint] [--screenshot out.png]
 """
 import os, re, sys, json, time, queue, argparse, threading, subprocess, tempfile, platform, glob
 import numpy as np, cv2
@@ -161,7 +161,7 @@ class App:
 
     def __init__(s, root):
         s.root, s.q = root, queue.Queue()
-        root.title('CA-DFDS 單眼失焦車距估測'); root.configure(bg=BG)
+        root.title('CA-DFDS 新版 GUI v3 — 單眼失焦車距估測・方法比較'); root.configure(bg=BG)
         st = ttk.Style(); st.theme_use('clam')
         st.configure('TCombobox', fieldbackground='#ffffff', padding=3)
         st.configure('Horizontal.TScale', background=CARD, troughcolor=LINE)
@@ -209,6 +209,7 @@ class App:
         # ---- 頁首 ----
         hd = tk.Frame(r, bg=HEADER, height=54); hd.pack(fill='x'); hd.pack_propagate(False)
         s.L(hd, 'CA-DFDS', 17, fg=ACCENT, bold=True, font=NUM).pack(side='left', padx=(18, 8))
+        s.L(hd, '新版 v3', 10, fg='#10172a', bold=True, bg=ACCENT).pack(side='left', padx=(0, 10))
         s.L(hd, '色彩感知單眼失焦車距估測 · 方法比較 Demo', 12, fg=FG).pack(side='left')
         s.hw_gpu = s.L(hd, 'GPU 偵測中…', 9, fg=MUTED); s.hw_gpu.pack(side='right', padx=(6, 18))
         s.gpu_dot = s.L(hd, '●', 12, fg=WARN); s.gpu_dot.pack(side='right')

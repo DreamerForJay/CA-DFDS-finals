@@ -4,6 +4,22 @@
 
 ---
 
+## 2026-11-16｜GUI 改名：學長舊版 與 新版 v3
+
+執行者：Claude Code（實驗室 RTX 5080 主機），應 repo 擁有者要求
+
+| 原名 | 新名 | 說明 |
+|---|---|---|
+| `gui_demo.py`（v3） | `gui_new_v3.py` | **新版 v3**，視窗標題與頁首加上「新版 v3」 |
+| `run_gui.bat` | `run_gui_new.bat` | 啟動新版 |
+| （commit 782066e 的初版 `gui_demo.py`） | `gui_old_senior.py` ＋ 新增 `run_gui_old_senior.bat` | **學長舊版**（論文權重、單一方法），從 git 歷史還原 |
+| `results/gui_1–3.png` | `results/gui_old_senior_1–3.png` | 舊版截圖 |
+| `results/gui_v3_*.png` | `results/gui_new_v3_*.png` | 新版截圖 |
+
+- 學長舊版只改了視窗標題，並讓校正檔路徑以程式所在資料夾為準，運算邏輯不變。
+- 已同步更新 README、AGENTS、RESULTS（任務 G、補充 I）、GUI_DEMO、ARCHITECTURE、IMPROVEMENT_PLAN、LAB_REPORT_2026-11-15、`logs/gui_screenshots.py`、`baselines/deep_worker.py` 中的檔名。
+- 本 CHANGELOG 較早的條目保留當時的檔名，不回頭修改。
+
 ## 2026-11-16｜深度模型線性校正、全自動遮罩（YOLO → SAM）、GUI v3
 
 執行者：Claude Code（實驗室 RTX 5080 主機），應 repo 擁有者要求

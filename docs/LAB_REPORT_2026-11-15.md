@@ -225,15 +225,15 @@ README 列出的七項任務（A–G）全部執行完成，結果已同步回 G
 
 ### 任務 G｜現場 GUI 測試
 
-**做了什麼**：開啟 `gui_demo.py`，依序以紅、藍、綠三張測試影像執行「開啟影像 → 載入遮罩 → 估測距離」並截圖。
+**做了什麼**：開啟 `gui_old_senior.py`（當時名為 `gui_demo.py`，2026-11-16 改名為學長舊版），依序以紅、藍、綠三張測試影像執行「開啟影像 → 載入遮罩 → 估測距離」並截圖。
 
-**怎麼做**：截圖由 `logs/gui_screenshots.py` 自動操作：它啟動的是同一個 `gui_demo.py`（沒有修改原檔），只把檔案對話框換成自動選檔，等結果出現後擷取視窗。這樣截圖可以重現，也確認了 GUI 的完整流程。
+**怎麼做**：截圖由 `logs/gui_screenshots.py` 自動操作：它啟動的是同一個 `gui_old_senior.py`（沒有修改原檔），只把檔案對話框換成自動選檔，等結果出現後擷取視窗。這樣截圖可以重現，也確認了 GUI 的完整流程。
 
 | 截圖 | 影像 | σ | 估測 | 真實 | 誤差 | 計算時間 |
 |---|---|---|---|---|---|---|
-| gui_1.png | 紅色車 3.2 m | 2.09 | 3.04 m | 3.20 m | −0.16 m | 3020 ms |
-| gui_2.png | 藍色車 5.2 m | 5.55 | 5.68 m | 5.20 m | +0.48 m | 2115 ms |
-| gui_3.png | 綠色車 1.7 m | 0.58 | 1.41 m | 1.70 m | −0.29 m | 2164 ms |
+| gui_old_senior_1.png | 紅色車 3.2 m | 2.09 | 3.04 m | 3.20 m | −0.16 m | 3020 ms |
+| gui_old_senior_2.png | 藍色車 5.2 m | 5.55 | 5.68 m | 5.20 m | +0.48 m | 2115 ms |
+| gui_old_senior_3.png | 綠色車 1.7 m | 0.58 | 1.41 m | 1.70 m | −0.29 m | 2164 ms |
 
 GUI 運作正常。滑鼠塗抹遮罩的功能本次沒有測試，建議決賽前手動操作一次。
 
@@ -290,7 +290,7 @@ GUI 運作正常。滑鼠塗抹遮罩的功能本次沒有測試，建議決賽�
 | `results/timing.json` | 任務 D 處理時間 |
 | `results/19colors_opt.csv` | 任務 E 22 色評估 |
 | `results/original_code/` | 任務 F 學長原始程式與匯出的 .py |
-| `results/gui_1.png`–`gui_3.png` | 任務 G GUI 截圖 |
+| `results/gui_old_senior_1.png`–`gui_old_senior_3.png` | 任務 G GUI 截圖 |
 | `logs/run_taskA.sh`、`logs/gui_screenshots.py` | 本次撰寫的輔助腳本 |
 | `logs/task*.log` | 各任務的執行紀錄 |
 | `RESULTS.md` | 各任務數值結果 |

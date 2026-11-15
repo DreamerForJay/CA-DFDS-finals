@@ -178,7 +178,8 @@ CA-DFDS（Color-Aware Depth From Defocus with Segmentation）：用**一台相�
 |---|---|
 | `cadfds_core.py` | 核心演算法：CIECAM02、清晰度、校正 |
 | `extract_features.py` / `evaluate.py` / `reoptimize.py` | 批次特徵抽取、評估、權重最佳化 |
-| `gui_demo.py` + `run_gui.bat` | 現場 demo、方法比較 GUI（[GUI_DEMO.md](GUI_DEMO.md)） |
+| `gui_new_v3.py` + `run_gui_new.bat` | **新版 v3** 現場 demo、方法比較 GUI（[GUI_DEMO.md](GUI_DEMO.md)） |
+| `gui_old_senior.py` + `run_gui_old_senior.bat` | **學長舊版** GUI：論文權重單一方法（保留對照） |
 | `baselines/deep_worker.py` | YOLO／SAM／UniDepth／Depth Pro 的 GPU 背景程式（GUI 自動呼叫），含全自動遮罩 `auto()` |
 | `baselines/eval_deep.py` | 深度模型、自動遮罩批次評估（測試集與校正集） |
 | `scripts/build_calibrations.py` | 各方法校正曲線，含深度模型線性校正 |

@@ -3,7 +3,7 @@
 
 Why a separate process: torch/SAM/UniDepth/Depth Pro are installed in D:\\Carla-0.10.0-Win64-Shipping\\.venv
 (torch 2.11 + CUDA 12.8, supports the RTX 5080). The CA-DFDS core needs colour-science 0.4.6 in .venv-cadfds.
-Keeping the two environments separate avoids package conflicts. gui_demo.py talks to this program over stdin/stdout JSON lines.
+Keeping the two environments separate avoids package conflicts. gui_new_v3.py talks to this program over stdin/stdout JSON lines.
 
 Protocol (one JSON object per line):
   {"cmd": "info"}                                          → hardware and environment info

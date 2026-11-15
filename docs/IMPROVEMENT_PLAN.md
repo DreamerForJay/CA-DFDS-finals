@@ -34,7 +34,7 @@
 | C7 | 近距離版本 GUI（作品說明書圖 5） | 實驗室電腦未找到原始碼；候選 old/test_carla.ipynb 為 OpenCV 點選工具，待學長確認 | ⬜ |
 | C4 | 邊緣裝置（Jetson Orin Nano）部署與實測 | 成本估算之依據 | ⬜ |
 | C5 | 對焦距離與測距範圍之設計規則 | 由式 (1) 推導可用測距區間與對焦距離之關係 | ⬜ |
-| C6 | 現場 GUI（`gui_demo.py`） | 載圖、遮罩、估測距離 | ✅ 初版；2026-11-15 現場測試正常（RESULTS 任務 G）。2026-11-16 v2：6 種方法同時比較、資料集瀏覽、自動遮罩／SAM 框選、硬體偵測、即時計時（docs/GUI_DEMO.md） |
+| C6 | 現場 GUI（新版 `gui_new_v3.py`；學長舊版 `gui_old_senior.py`） | 載圖、遮罩、估測距離 | ✅ 初版；2026-11-15 現場測試正常（RESULTS 任務 G）。2026-11-16 v2：6 種方法同時比較、資料集瀏覽、自動遮罩／SAM 框選、硬體偵測、即時計時（docs/GUI_DEMO.md） |
 | C7 | 與單張深度模型比較 | 同一批影像比較 UniDepth V2、ML-Depth-Pro | ✅ 2026-11-16：480 張整體 RMSE：CA-DFDS 0.337 m、UniDepth 1.879 m、Depth Pro 0.871 m（RESULTS 補充 H）。2026-11-16 已補做線性校正：UniDepth 0.357 m、Depth Pro 0.751 m（RESULTS 補充 J） |
 | C8 | YOLO → SAM → CA-DFDS 全自動流程 | 現場不需人工標遮罩 | ✅ 2026-11-16：GUI「自動偵測」與影片模式 |
 | C9 | 近距離 CA-DFDS ＋ 遠距離深度模型融合 | 兩類方法誤差互補（≤ 3.7 m 對 ≥ 4.2 m） | ⬜ |
