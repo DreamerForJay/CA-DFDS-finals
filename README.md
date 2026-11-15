@@ -1,5 +1,8 @@
 # CA-DFDS 決賽補充實驗（實驗室電腦執行用）
 
+> **2026-11-15 更新：下一階段實驗清單（審查建議整理、依優先順序）見 [docs/NEXT_EXPERIMENTS.md](docs/NEXT_EXPERIMENTS.md)，請優先執行。**
+
+
 > 📌 **接手者（AI／同學）請先讀 [AGENTS.md](AGENTS.md)**：目前進度、協作規則、Git 身分、Google Drive 同步方式。變更紀錄見 [docs/CHANGELOG.md](docs/CHANGELOG.md)。
 > 2026-11-15：任務 A–G 已全部完成，結果見 [RESULTS.md](RESULTS.md) 與 [docs/LAB_REPORT_2026-11-15.md](docs/LAB_REPORT_2026-11-15.md)。
 > 🖥️ **開啟 GUI demo**：點兩下 `run_gui.bat`，說明見 [docs/GUI_DEMO.md](docs/GUI_DEMO.md)。
