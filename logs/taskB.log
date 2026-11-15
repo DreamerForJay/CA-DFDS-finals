@@ -1,0 +1,30 @@
+### evaluate
+gray                             test_red           per-dist 0.215 m   per-image 0.216 m
+gray                             test_green         per-dist 0.173 m   per-image 0.174 m
+gray                             test_blue          per-dist 0.392 m   per-image 0.393 m
+gray                             test_black         per-dist 0.540 m   per-image 0.541 m
+w1(0.6,0.2,0.2)                  test_red           per-dist 0.310 m   per-image 0.311 m
+w1(0.6,0.2,0.2)                  test_green         per-dist 0.235 m   per-image 0.235 m
+w1(0.6,0.2,0.2)                  test_blue          per-dist 0.801 m   per-image 0.801 m
+w1(0.6,0.2,0.2)                  test_black         per-dist 0.609 m   per-image 0.609 m
+w2(0.8,0.1,0.1)                  test_red           per-dist 0.268 m   per-image 0.269 m
+w2(0.8,0.1,0.1)                  test_green         per-dist 0.191 m   per-image 0.192 m
+w2(0.8,0.1,0.1)                  test_blue          per-dist 0.501 m   per-image 0.502 m
+w2(0.8,0.1,0.1)                  test_black         per-dist 0.491 m   per-image 0.491 m
+opt(0.8136,0.1782,0.0081)        test_red           per-dist 0.275 m   per-image 0.276 m
+opt(0.8136,0.1782,0.0081)        test_green         per-dist 0.195 m   per-image 0.196 m
+opt(0.8136,0.1782,0.0081)        test_blue          per-dist 0.348 m   per-image 0.348 m
+opt(0.8136,0.1782,0.0081)        test_black         per-dist 0.468 m   per-image 0.468 m
+reopt5                           test_red           per-dist 0.239 m   per-image 0.240 m
+reopt5                           test_green         per-dist 0.185 m   per-image 0.185 m
+reopt5                           test_blue          per-dist 0.303 m   per-image 0.304 m
+reopt5                           test_black         per-dist 0.456 m   per-image 0.456 m
+Jonly                            test_red           per-dist 0.226 m   per-image 0.227 m
+Jonly                            test_green         per-dist 0.190 m   per-image 0.191 m
+Jonly                            test_blue          per-dist 0.307 m   per-image 0.307 m
+Jonly                            test_black         per-dist 0.458 m   per-image 0.458 m
+saved results/table8_testdist.csv
+### reopt 5
+{'form': '5', 'weights': [0.9434, 0.0566, 0.0], 'rounds': 48, 'calib_rmse_cm': 43.482}
+### reopt 7
+{'form': '7', 'weights': [1.0, 0.0, 0.0], 'rounds': 7, 'calib_rmse_cm': 43.658}
