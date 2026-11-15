@@ -1,0 +1,101 @@
+130 images
+saved features/cal_white.npz
+130 images
+saved features/cal_gray.npz
+130 images
+saved features/cal_black.npz
+130 images
+saved features/cal_red.npz
+130 images
+saved features/cal_green.npz
+130 images
+saved features/cal_blue.npz
+[警告] 找不到遮罩之 T： [13]
+130 images
+[警告] 無法讀取／無遮罩： 10 ['d:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_azure/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot01.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_azure/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot02.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_azure/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot03.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_azure/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot04.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_azure/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot05.png']
+saved features/test_azure.npz
+[警告] 找不到遮罩之 T： [13]
+130 images
+[警告] 無法讀取／無遮罩： 10 ['d:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_black/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot01.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_black/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot02.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_black/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot03.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_black/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot04.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_black/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot05.png']
+saved features/test_black.npz
+[警告] 找不到遮罩之 T： [13]
+130 images
+[警告] 無法讀取／無遮罩： 10 ['d:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_blue/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot01.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_blue/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot02.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_blue/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot03.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_blue/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot04.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_blue/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot05.png']
+saved features/test_blue.npz
+[警告] 找不到遮罩之 T： [13]
+130 images
+[警告] 無法讀取／無遮罩： 10 ['d:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_brown/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot01.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_brown/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot02.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_brown/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot03.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_brown/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot04.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_brown/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot05.png']
+saved features/test_brown.npz
+[警告] 找不到遮罩之 T： [13]
+130 images
+[警告] 無法讀取／無遮罩： 10 ['d:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_chartreuse/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot01.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_chartreuse/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot02.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_chartreuse/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot03.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_chartreuse/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot04.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_chartreuse/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot05.png']
+saved features/test_chartreuse.npz
+[警告] 找不到遮罩之 T： [13]
+130 images
+[警告] 無法讀取／無遮罩： 10 ['d:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_cyan/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot01.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_cyan/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot02.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_cyan/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot03.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_cyan/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot04.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_cyan/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot05.png']
+saved features/test_cyan.npz
+[警告] 找不到遮罩之 T： [13]
+130 images
+[警告] 無法讀取／無遮罩： 10 ['d:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_deep160Gray/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot01.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_deep160Gray/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot02.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_deep160Gray/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot03.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_deep160Gray/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot04.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_deep160Gray/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot05.png']
+saved features/test_deep160Gray.npz
+[警告] 找不到遮罩之 T： [13]
+130 images
+[警告] 無法讀取／無遮罩： 10 ['d:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_deepBlue/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot01.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_deepBlue/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot02.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_deepBlue/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot03.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_deepBlue/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot04.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_deepBlue/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot05.png']
+saved features/test_deepBlue.npz
+[警告] 找不到遮罩之 T： [13]
+130 images
+[警告] 無法讀取／無遮罩： 10 ['d:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_deepGray/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot01.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_deepGray/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot02.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_deepGray/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot03.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_deepGray/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot04.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_deepGray/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot05.png']
+saved features/test_deepGray.npz
+[警告] 找不到遮罩之 T： [13]
+130 images
+[警告] 無法讀取／無遮罩： 10 ['d:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_deepGreen/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot01.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_deepGreen/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot02.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_deepGreen/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot03.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_deepGreen/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot04.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_deepGreen/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot05.png']
+saved features/test_deepGreen.npz
+[警告] 找不到遮罩之 T： [13]
+130 images
+[警告] 無法讀取／無遮罩： 10 ['d:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_deepRed/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot01.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_deepRed/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot02.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_deepRed/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot03.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_deepRed/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot04.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_deepRed/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot05.png']
+saved features/test_deepRed.npz
+[警告] 找不到遮罩之 T： [13]
+130 images
+[警告] 無法讀取／無遮罩： 10 ['d:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_gray/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot01.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_gray/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot02.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_gray/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot03.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_gray/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot04.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_gray/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot05.png']
+saved features/test_gray.npz
+[警告] 找不到遮罩之 T： [13]
+130 images
+[警告] 無法讀取／無遮罩： 10 ['d:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_green/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot01.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_green/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot02.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_green/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot03.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_green/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot04.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_green/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot05.png']
+saved features/test_green.npz
+[警告] 找不到遮罩之 T： [13]
+130 images
+[警告] 無法讀取／無遮罩： 10 ['d:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_magenta/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot01.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_magenta/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot02.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_magenta/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot03.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_magenta/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot04.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_magenta/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot05.png']
+saved features/test_magenta.npz
+[警告] 找不到遮罩之 T： [13]
+130 images
+[警告] 無法讀取／無遮罩： 10 ['d:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_orange/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot01.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_orange/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot02.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_orange/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot03.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_orange/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot04.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_orange/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot05.png']
+saved features/test_orange.npz
+[警告] 找不到遮罩之 T： [13]
+130 images
+[警告] 無法讀取／無遮罩： 10 ['d:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_pureBlue/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot01.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_pureBlue/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot02.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_pureBlue/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot03.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_pureBlue/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot04.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_pureBlue/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot05.png']
+saved features/test_pureBlue.npz
+[警告] 找不到遮罩之 T： [13]
+130 images
+[警告] 無法讀取／無遮罩： 10 ['d:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_red/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot01.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_red/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot02.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_red/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot03.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_red/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot04.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_red/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot05.png']
+saved features/test_red.npz
+[警告] 找不到遮罩之 T： [13]
+130 images
+[警告] 無法讀取／無遮罩： 10 ['d:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_rose/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot01.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_rose/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot02.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_rose/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot03.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_rose/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot04.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_rose/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot05.png']
+saved features/test_rose.npz
+[警告] 找不到遮罩之 T： [13]
+130 images
+[警告] 無法讀取／無遮罩： 10 ['d:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_springGreen/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot01.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_springGreen/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot02.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_springGreen/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot03.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_springGreen/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot04.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_springGreen/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot05.png']
+saved features/test_springGreen.npz
+[警告] 找不到遮罩之 T： [13]
+130 images
+[警告] 無法讀取／無遮罩： 10 ['d:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_violet/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot01.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_violet/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot02.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_violet/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot03.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_violet/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot04.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_violet/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot05.png']
+saved features/test_violet.npz
+[警告] 找不到遮罩之 T： [13]
+130 images
+[警告] 無法讀取／無遮罩： 10 ['d:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_yellow/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot01.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_yellow/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot02.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_yellow/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot03.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_yellow/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot04.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck_yellow/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot05.png']
+saved features/test_yellow.npz
+[警告] 找不到遮罩之 T： [13]
+130 images
+[警告] 無法讀取／無遮罩： 10 ['d:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot01.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot02.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot03.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot04.png', 'd:/Carla-0.10.0-Win64-Shipping/Carla-0.10.0-Win64-Shipping/datas/firetruck/Test_dataset_Focus1500cm_f1.4_f22.0\\T13\\R\\D7.2_shot05.png']
+saved features/test_firetruck.npz
+DONE
