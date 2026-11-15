@@ -1,0 +1,3 @@
+saved results\gui_1.png | 清晰度 σ = 2.09  估測距離 3.04 m  計算時間 3020 ms  真實距離 3.20 m 誤差 -0.16 m
+saved results\gui_2.png | 清晰度 σ = 5.55  估測距離 5.68 m  計算時間 2115 ms  真實距離 5.20 m 誤差 +0.48 m
+saved results\gui_3.png | 清晰度 σ = 0.58  估測距離 1.41 m  計算時間 2164 ms  真實距離 1.70 m 誤差 -0.29 m
