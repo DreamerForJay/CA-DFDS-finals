@@ -6,5 +6,5 @@ if not exist ".venv-cadfds\Scripts\python.exe" (
   pause
   exit /b 1
 )
-".venv-cadfds\Scripts\python.exe" gui_demo.py --calibration results\calibration_opt.json %*
+".venv-cadfds\Scripts\python.exe" gui_demo.py %*
 if errorlevel 1 pause

@@ -74,6 +74,17 @@ def sharpness(img_bgr, mask, w=W_OPT):
     return sigma_eq5(laplacian_cov(img_bgr, mask), w)
 
 
+def crop_to_mask(img_bgr, mask, pad=4):
+    """Crop to the mask's bounding box + pad pixels. 3x3 Gaussian + 3x3 Laplacian need only 2 pixels of margin,
+    so computing on the crop gives exactly the same σ as on the full image (verified 2026-11-16, difference 0), but faster for far cars."""
+    ys, xs = np.nonzero(mask)
+    if len(xs) == 0:
+        return img_bgr, mask
+    y0, x0 = max(ys.min() - pad, 0), max(xs.min() - pad, 0)
+    y1, x1 = ys.max() + pad + 1, xs.max() + pad + 1
+    return img_bgr[y0:y1, x0:x1], mask[y0:y1, x0:x1]
+
+
 def fit_quadratic(x, d_cm):
     co = np.polyfit(np.asarray(x, float), np.asarray(d_cm, float), 2)
     pred = np.polyval(co, x)

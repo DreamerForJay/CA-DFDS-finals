@@ -1,0 +1,37 @@
+480 images, device=cuda
+D:\Carla-0.10.0-Win64-Shipping\.venv\Lib\site-packages\timm\models\layers\__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+D:\Carla-0.10.0-Win64-Shipping\Carla-0.10.0-Win64-Shipping\models_unidepth_repo\unidepth\utils\chamfer_distance.py:9: UserWarning: !! To run evaluation you need KNN. Please compile KNN: `cd unidepth/ops/knn with && bash compile.sh`.
+  warnings.warn(
+xFormers not available
+xFormers not available
+D:\Carla-0.10.0-Win64-Shipping\Carla-0.10.0-Win64-Shipping\models_unidepth_repo\unidepth\models\unidepthv2\unidepthv2.py:262: UserWarning: !! self.resolution_level not set, using default bounds !!
+  warnings.warn("!! self.resolution_level not set, using default bounds !!")
+Cannot import NystromAttention, you can not run original UniDepth. UniDepthV2 is available.
+Not loading pretrained weights for backbone
+EdgeGuidedLocalSSI reverts to a non cuda-optimized operation, you will experince large slowdown, please install it:  `cd ./unidepth/ops/extract_patches && bash compile.sh`
+20/480 red T02 gt=1.7 uni=3.319 dp=1.6201
+40/480 red T04 gt=2.7 uni=4.1653 dp=2.8926
+60/480 red T06 gt=3.7 uni=5.247 dp=4.1211
+80/480 red T08 gt=4.7 uni=6.3928 dp=4.4336
+100/480 red T10 gt=5.7 uni=7.6425 dp=5.1055
+120/480 red T12 gt=6.7 uni=8.9257 dp=5.5078
+140/480 green T02 gt=1.7 uni=4.4776 dp=1.25
+160/480 green T04 gt=2.7 uni=4.3885 dp=2.3848
+180/480 green T06 gt=3.7 uni=5.2033 dp=3.7363
+200/480 green T08 gt=4.7 uni=6.6205 dp=4.2148
+220/480 green T10 gt=5.7 uni=7.9599 dp=4.7852
+240/480 green T12 gt=6.7 uni=9.1512 dp=5.1719
+260/480 blue T02 gt=1.7 uni=3.2989 dp=1.2109
+280/480 blue T04 gt=2.7 uni=4.0933 dp=2.2891
+300/480 blue T06 gt=3.7 uni=5.0132 dp=3.7441
+320/480 blue T08 gt=4.7 uni=6.424 dp=4.1914
+340/480 blue T10 gt=5.7 uni=7.7053 dp=4.6445
+360/480 blue T12 gt=6.7 uni=8.7907 dp=4.9922
+380/480 black T02 gt=1.7 uni=3.9034 dp=1.0195
+400/480 black T04 gt=2.7 uni=4.0586 dp=1.8467
+420/480 black T06 gt=3.7 uni=4.8322 dp=3.5215
+440/480 black T08 gt=4.7 uni=6.8731 dp=4.043
+460/480 black T10 gt=5.7 uni=8.0841 dp=4.7617
+480/480 black T12 gt=6.7 uni=9.216 dp=5.1055
+saved results/deep_baselines.csv

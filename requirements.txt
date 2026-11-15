@@ -4,3 +4,4 @@ colour-science==0.4.6
 scipy>=1.10
 pillow>=10.0
 matplotlib>=3.7
+tkinterdnd2>=0.4  # optional: drag-and-drop in the GUI

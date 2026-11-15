@@ -160,3 +160,39 @@
 
 - 檔案：`results/gui_*.png`、`logs/gui_screenshots.py`、`logs/taskG.log`
 - 備註：GUI 開啟、載入遮罩、估測、顯示真實距離與誤差皆正常；滑鼠塗抹遮罩功能未在本次截圖中測試
+
+## 補充 H｜方法比較：CA-DFDS 對比灰階 DFD、UniDepth V2、ML-Depth-Pro（2026-11-16）
+
+- 設定：紅、綠、藍、黑四色 × T01–T12（1.2–6.7 m）× 10 張，共 480 張。所有方法使用同一份手繪遮罩，每張影像各自估測。
+- 深度模型：官方權重，不重新訓練、不校正；取遮罩內深度的中位數，並給定相機內參 fx = 1137.8 px。
+
+| 方法 | 紅 | 綠 | 藍 | 黑 | 整體 RMSE (m) | 平均偏差 (m) | 每張時間 |
+|---|---|---|---|---|---|---|---|
+| CA-DFDS（論文權重） | 0.276 | 0.196 | 0.348 | 0.468 | **0.337** | +0.056 | 2264 ms CPU |
+| CA-DFDS 重新最佳化（式 5） | 0.243 | 0.184 | 0.304 | 0.456 | **0.314** | +0.044 | 2264 ms CPU |
+| CA-DFDS J only | 0.227 | 0.191 | 0.307 | 0.458 | **0.313** | +0.043 | 2264 ms CPU |
+| 灰階 DFD | 0.216 | 0.174 | 0.393 | 0.541 | **0.362** | +0.102 | 83 ms CPU |
+| UniDepth V2 | 1.713 | 2.096 | 1.705 | 1.974 | **1.879** | +1.832 | 26 ms GPU |
+| ML-Depth-Pro | 0.603 | 0.924 | 1.068 | 0.821 | **0.871** | −0.380 | 268 ms GPU |
+
+- SAM ViT-B 框選：以手繪遮罩外框當提示，與手繪遮罩的 IoU 平均 0.945、最低 0.902；每張約 110 ms（GPU）。
+- 檔案：
+  - 結果：`results/method_comparison.{md,json}`、`results/method_comparison_per_image.csv`、`results/deep_baselines.csv`、`results/calibration_methods.json`
+  - 紀錄：`logs/deep_baselines.log`
+- 解讀與公平性說明見 [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) 第 4 節。
+
+## 補充 I｜GUI v2（2026-11-16）
+
+- 功能：
+  - 6 種方法同時比較，結果表、距離數線、影像標籤即時更新。
+  - 資料集瀏覽器：車色選單、距離滑桿、張數。
+  - 遮罩：自動載入手繪遮罩，或 SAM 框選、手動塗抹；SAM 與手動遮罩會顯示和手繪遮罩的 IoU。
+  - 自動偵測 CPU、GPU 型號，顯示即時計時。
+- 截圖：`results/gui_v2_1.png`（紅色車 3.2 m）、`results/gui_v2_2.png`（藍色車 6.2 m）。
+
+| 截圖 | 真實距離 | CA-DFDS | 灰階 | UniDepth | Depth Pro | 總時間 |
+|---|---|---|---|---|---|---|
+| gui_v2_1（red T05 shot01） | 3.20 m | 3.04 m（−0.16） | 3.10 m（−0.10） | 4.97 m（+1.77） | 3.53 m（+0.33） | 1.70 s |
+| gui_v2_2（blue T11 shot03） | 6.20 m | 6.43 m（+0.23） | 6.44 m（+0.24） | 8.35 m（+2.15） | 4.96 m（−1.24） | 0.91 s |
+
+- 說明：[docs/GUI_DEMO.md](docs/GUI_DEMO.md)。截圖只擷取 GUI 視窗本身（PrintWindow），其他視窗不會被拍進去。

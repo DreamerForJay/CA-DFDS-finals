@@ -4,6 +4,32 @@
 
 ---
 
+## 2026-11-16｜GUI v2（方法比較）、UniDepth／Depth Pro／SAM 比較、架構說明
+
+執行者：Claude Code（實驗室 RTX 5080 主機），應 repo 擁有者要求
+
+- **GUI v2**（`gui_demo.py`，`run_gui.bat` 同步更新）：
+  - 修正字被裁切：支援高 DPI、右側面板自動換行、視窗可縮放。
+  - 選影像：資料集瀏覽器（車色選單、距離滑桿、張數、←→↑↓ 快捷鍵），可拖放檔案。
+  - 遮罩：自動載入對應的手繪遮罩；「指定遮罩檔…」直接開在遮罩資料夾。
+  - 遮罩模式三選一：資料集遮罩、SAM 框選（GPU）、手動塗抹，並顯示和手繪遮罩的 IoU。
+  - **6 種方法同時比較**：CA-DFDS 三種權重、灰階 DFD、UniDepth V2、ML-Depth-Pro。
+    - 配色區分：暖色是本研究、冷色是他人方法、灰色是傳統基準。
+    - 結果表、距離數線、影像標籤即時更新，★ 標示本張最佳。
+  - 自動偵測 CPU、GPU（型號、VRAM、CUDA），即時顯示計時。
+  - 截圖改用 PrintWindow，只擷取 GUI 視窗；之前的全螢幕擷取會拍到其他視窗，例如遠端軟體通知。
+- **新增 `baselines/`**：
+  - `deep_worker.py`：在 torch 環境以子程序執行 SAM、UniDepth、Depth Pro。
+  - `eval_deep.py`：批次評估。
+- **新增 `scripts/`**：`build_calibrations.py`（各方法的校正曲線）、`compare_methods.py`（整體比較表）。
+- `cadfds_core.py` 新增 `crop_to_mask`：只算遮罩外框範圍，結果與整張相同（已驗證差異為 0），遠距離由 2.3 s 降到 0.6 s。原有函式未變。
+- **新結果**（RESULTS 補充 H、I）：
+  - 480 張整體 RMSE：CA-DFDS 0.337、重新最佳化 0.314、J only 0.313、灰階 0.362、Depth Pro 0.871、UniDepth 1.879 m。
+  - SAM 框選與手繪遮罩的 IoU 平均 0.945。
+  - 新檔案：`results/method_comparison.*`、`deep_baselines.csv`、`calibration_methods.json`、`gui_v2_*.png`。
+- **新增 [docs/ARCHITECTURE.md](ARCHITECTURE.md)**：整體流程、遮罩說明（目前用手繪遮罩，SAM 和 YOLO 的差異）、方法比較與公平性說明、硬體。
+- 更新：GUI_DEMO.md（v2 操作）、AGENTS.md、README、IMPROVEMENT_PLAN（C3 🔄、C6、新增 C7 ✅、C8 ⬜）、`logs/gui_screenshots.py`（改呼叫 `--screenshot`）。
+
 ## 2026-11-15｜GUI demo 啟動方式與進度紀錄
 
 執行者：Claude Code（實驗室 RTX 5080 主機），應 repo 擁有者要求
