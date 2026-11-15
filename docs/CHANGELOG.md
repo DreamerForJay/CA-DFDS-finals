@@ -4,6 +4,15 @@
 
 ---
 
+## 2026-11-15｜GUI demo 啟動方式與進度紀錄
+
+執行者：Claude Code（實驗室 RTX 5080 主機），應 repo 擁有者要求
+
+- 新增 `run_gui.bat`：點兩下即可用 `.venv-cadfds` 啟動 `gui_demo.py`，並自動載入 `results/calibration_opt.json`。
+- 新增 [docs/GUI_DEMO.md](GUI_DEMO.md)：啟動方式、操作步驟、範例影像與遮罩路徑、在別台電腦執行的方法。
+- 更新 `AGENTS.md`：第 1 節加入目前進度與下一步候選，第 5 節加入 GUI 指令；README 加入 GUI 說明連結。
+- 程式與數值結果皆未變更。
+
 ## 2026-11-15｜上傳 Google Drive、修正 commit 作者、建立協作說明
 
 執行者：Claude Code（實驗室 RTX 5080 主機），應 repo 擁有者要求

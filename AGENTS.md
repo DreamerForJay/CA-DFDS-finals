@@ -8,6 +8,14 @@
 - README 任務 A–G **全部完成**，數值結果見 [RESULTS.md](RESULTS.md)，完整流程與發現見 [docs/LAB_REPORT_2026-11-15.md](docs/LAB_REPORT_2026-11-15.md)。
 - **待決事項**：校正用黑色車影像已於 2026-07-31 重新產生，論文校正曲線（R² 0.969）無法以現有資料重現（現為 0.942）。需由學長／指導教授決定以哪一版為準（報告第 4 節）。
 - 改善計畫的剩餘項目見 [docs/IMPROVEMENT_PLAN.md](docs/IMPROVEMENT_PLAN.md)（⬜／🔄）。
+- GUI demo：點兩下 `run_gui.bat` 即可開啟，操作說明見 [docs/GUI_DEMO.md](docs/GUI_DEMO.md)。
+- 成果已上傳 Google Drive（第 4 節）；commit 作者已修正為 DreamerForJay。
+
+### 下一步候選（尚未開始）
+
+1. 黑色校正資料決定後，重跑任務 B／E 並更新 `RESULTS.md`。
+2. 改善計畫中的 ⬜ 項目，例如：以 GPU 加速 CIECAM02、找回近距離 GUI。
+3. rclone 共用 client_id 停用前，改用自己的 client_id（第 4 節）。
 
 ## 2. 協作規則（必須遵守）
 
@@ -55,6 +63,8 @@
 bash logs/run_taskA.sh
 # 表 8／19 色評估（會改寫 calibration_opt.json 到 --out 的資料夾）
 python evaluate.py --calib features/cal_white.npz features/cal_gray.npz features/cal_black.npz --test features/test_*.npz --out results/xxx.csv
+# 開啟 GUI demo（或直接點兩下 run_gui.bat）
+.venv-cadfds/Scripts/python.exe gui_demo.py --calibration results/calibration_opt.json
 # GUI 自動截圖
 python logs/gui_screenshots.py results <影像> <遮罩> [...]
 # 同步 Drive
