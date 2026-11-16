@@ -4,6 +4,23 @@
 
 ---
 
+## 2026-11-16｜重建 repo、issue 改為文件
+
+執行者：Claude Code（實驗室 RTX 5080 主機），應 repo 擁有者要求
+
+- 原因：
+  - 11-15 改寫前的 8 個舊 commit 仍以未參照物件留在 GitHub。
+  - 因此 repo 首頁側欄的 Contributors 一直顯示他人帳號。
+- 處理：
+  1. 關閉已完成的 issue #1、#3、#4、#5、#6。
+  2. 把 8 個 issue 的內容與留言匯出到 [ISSUES_ARCHIVE.md](ISSUES_ARCHIVE.md)。
+  3. 備份到 `D:\Carla-0.10.0-Win64-Shipping\backup_CA-DFDS-finals_20261116\`（git mirror＋issues.json）。
+  4. 舊 repo 改名為 CA-DFDS-finals-old；以原名建立新 repo，推送完整 main 歷史（commit、作者、時間不變）。
+  5. 確認無誤後刪除舊 repo。
+- repo 網址不變：<https://github.com/DreamerForJay/CA-DFDS-finals>
+- 之後不再開 issue：待辦寫在 NEXT_EXPERIMENTS.md，結果寫在 RESULTS.md（AGENTS 第 2 節第 4 點）。
+- 原 issue 連結（`.../issues/N`）已失效，請改看 ISSUES_ARCHIVE.md。
+
 ## 2026-11-16｜GitHub issue #1–#8 實驗
 
 執行者：Claude Code（實驗室 RTX 5080 主機），應 repo 擁有者要求依 issue 執行。結果見 RESULTS「2026-11-16 GitHub issue 實驗」（補充 K–Q）。

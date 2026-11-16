@@ -12,7 +12,7 @@
 - GUI：**新版 v3** 是 `gui_new_v3.py`，點兩下 `run_gui_new.bat` 開啟；**學長舊版** 是 `gui_old_senior.py`（`run_gui_old_senior.bat`），保留作對照，不再修改。新版可同時比較 6 種方法，全自動遮罩（YOLO → SAM）、可調整的框、影片輸入，並偵測硬體。說明見 [docs/GUI_DEMO.md](docs/GUI_DEMO.md)。
 - 方法比較（480 張，整體 RMSE）：CA-DFDS 0.337 m、灰階 0.362 m；UniDepth 原始 1.879 m、線性校正 **0.357 m**；Depth Pro 原始 0.871 m、線性校正 0.751 m。全自動遮罩下 CA-DFDS 為 0.310 m（RESULTS 補充 H、J）。
 - **報告口徑**：公平比較時，CA-DFDS 與 UniDepth 準確度相當；CA-DFDS 近距離（≤ 3.7 m）較準，UniDepth 遠距離較準。不要寫「大幅勝過深度模型」。
-- 成果已上傳 Google Drive（第 4 節）；commit 作者已修正為 DreamerForJay。
+- 成果已上傳 Google Drive（第 4 節）。2026-11-16 repo 已重建（同名同網址），歷史中只有 DreamerForJay 的 commit；舊 repo 與他人帳號的殘留 commit 已刪除。
 - **2026-11-16 GitHub issue #1–#8 實驗**（RESULTS「2026-11-16 GitHub issue 實驗」一節，補充 K–Q）：
   - #1：GPU 版 CIECAM02 `cadfds_gpu.py`（PyTorch，與 CPU 誤差 1e-13），整條管線 10.8–14.1 FPS。
   - #3：式 (5)／(7) 對照。
@@ -40,9 +40,10 @@
    - 然後 `git commit` + `git push`；若結果檔有變，再執行 `bash scripts/sync_drive.sh` 同步 Google Drive。
 2. **Git 身分**：在本 repo 一律以 `DreamerForJay <DreamerForJay@users.noreply.github.com>` 提交。實驗室主機已在 repo 內設定（`git config --local`）；**不要使用或修改電腦的全域 Git 身分**——那是別人的帳號，曾造成 commit 掛到他人名下（已於 2026-11-15 修正）。提交前可用 `git config user.email` 確認。
 3. **不要改寫已推送的歷史**（`push --force`、rebase 已推送的 commit），除非 repo 擁有者明確要求。
-4. **commit 訊息**沿用 `lab results: <任務代號與一句摘要>` 或 `docs: …`／`scripts: …`。
-5. **不要提交**：影像資料、`.venv-cadfds/`、`logs/bin/`（ffmpeg 執行檔）、`logs/scratch/`、任何憑證檔（如 `rclone.conf`）。單檔 > 95 MB 改放 Drive 並在 CHANGELOG 寫連結。
-6. 結果檔放在 `results/`（需 `git add -f`）；特徵檔 `features/*.npz` 被 `.gitignore` 排除，也需 `git add -f`。
+4. **不開 GitHub issue**：實驗待辦寫在 [docs/NEXT_EXPERIMENTS.md](docs/NEXT_EXPERIMENTS.md)，結果寫在 `RESULTS.md`。原 issue #1–#8 的內容與留言已封存於 [docs/ISSUES_ARCHIVE.md](docs/ISSUES_ARCHIVE.md)。
+5. **commit 訊息**沿用 `lab results: <任務代號與一句摘要>` 或 `docs: …`／`scripts: …`。
+6. **不要提交**：影像資料、`.venv-cadfds/`、`logs/bin/`（ffmpeg 執行檔）、`logs/scratch/`、任何憑證檔（如 `rclone.conf`）。單檔 > 95 MB 改放 Drive 並在 CHANGELOG 寫連結。
+7. 結果檔放在 `results/`（需 `git add -f`）；特徵檔 `features/*.npz` 被 `.gitignore` 排除，也需 `git add -f`。
 
 ## 3. 實驗室主機環境（RTX 5080 主機）
 
