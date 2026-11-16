@@ -31,6 +31,7 @@
   - 檔案：`results/multi_vehicle.csv`、`results/failure_cases/`、`scripts/m78_vehicle_failure.py`、`logs/m78.log`
 - **#7 實體相機**：本機無法執行。
 - 文件：更新 RESULTS、NEXT_EXPERIMENTS（M1–M5、M8 ✅，M7 🔄）、IMPROVEMENT_PLAN（A3、C2 ✅，A7 🔄）、AGENTS。
+- 已用 gh（DreamerForJay 登入，安裝於 `C:\Program Files\GitHub CLI`）在 issue #1–#8 各貼一則結果摘要留言；#1、#3、#4、#5、#6 可關閉，#2、#7、#8 保持開啟。
 - GitHub Contributors：main 上所有 commit 都已是 DreamerForJay。但改寫前的 8 個舊 commit 仍以未參照物件留在 GitHub，因此頁面側欄的 Contributors 快取仍可能顯示他人帳號；需 repo 擁有者聯絡 GitHub Support 清除。
 
 ## 2026-11-16｜GUI 改名：學長舊版 與 新版 v3
