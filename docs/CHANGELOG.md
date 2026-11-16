@@ -15,6 +15,7 @@
   - 校正方式比較圖。
   - `tables.json`。
 - 新增報告 `docs/M7_MULTIVEHICLE_REPORT.md`（圖表與 Markdown 表格）；RESULTS 補充 R 加上連結。
+- 另做成投影片（17 頁）：https://claude.ai/artifact/FweFXJij7ewE1wwwLnEUXR（連結已寫入報告開頭）。
 
 ---
 

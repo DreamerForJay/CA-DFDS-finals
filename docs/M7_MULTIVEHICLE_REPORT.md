@@ -1,6 +1,7 @@
 # M7 多車種測試報告（CARLA 重新產生，2026-11-16）
 
 > 以實驗室週會投影片的格式整理。數據來源：`results/multi_vehicle_carla.csv`，以及 `results/m7_report/tables.json`。
+> 投影片版（17 頁，可下載 .pptx／PDF，需擁有者分享後他人才能開啟）：https://claude.ai/artifact/FweFXJij7ewE1wwwLnEUXR
 > 圖由 `scripts/m7_report.py` 產生，資料產生與評估方法見 [RESULTS.md](../RESULTS.md) 補充 R。
 
 ## 1. 實驗設定
