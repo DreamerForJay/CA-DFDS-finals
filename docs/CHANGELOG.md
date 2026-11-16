@@ -4,6 +4,35 @@
 
 ---
 
+## 2026-11-16｜GitHub issue #1–#8 實驗
+
+執行者：Claude Code（實驗室 RTX 5080 主機），應 repo 擁有者要求依 issue 執行。結果見 RESULTS「2026-11-16 GitHub issue 實驗」（補充 K–Q）。
+
+- **#1（M3）完整管線計時**
+  - 新增 `cadfds_gpu.py`：PyTorch 版 CIECAM02、拉普拉斯、共變異；與 CPU 特徵相對誤差 1.8e-13。
+  - CIECAM02 轉換 2283 → 17.8 ms（fp64）；整條管線 10.8–14.1 FPS；含 YOLO＋SAM 約 5 FPS。
+  - 檔案：`results/timing_full_pipeline.json`、`scripts/m3_timing_full_pipeline.py`
+- **#2 前期研究硬體**：論文、簡報、中文初稿都沒有記載，需向作者詢問。
+- **#3（M1）式 (5)／(7) 對照**：互有勝負，建議統一寫式 (5)。檔案：`results/eq5_vs_eq7.csv`、`scripts/m1_eq5_vs_eq7.py`
+- **#4（M2）消融 E**
+  - 6 色校正，權重 (0.9786, 0.0214, 0)；14 個未參與校正車色 0.303 m，與 J only 0.301 m 相當。
+  - 檔案：`results/ablation_E*.{csv,json}`、`scripts/m2_ablation_E.py`
+- **#5（M4）全自動遮罩**
+  - 校正集也改用自動遮罩（IoU 0.892），全自動 CA-DFDS 0.317 m。
+  - 檔案：`results/auto_mask.csv`、`results/auto_mask_summary.json`、`results/auto_mask_examples/`、`features/cal_auto_*.npz`、`scripts/m4_auto_mask_{calib,report}.py`
+- **#6（M5）gamma**
+  - 現有資料沒有 gamma 混用（log-log 斜率 0.84–1.06）。
+  - 全部轉為線性光後，灰階 0.332 → 0.251、CA-DFDS 0.337 → 0.276 m，需以 CARLA 重渲染確認。
+  - 檔案：`results/gamma_check.csv`、`results/19colors_gamma_unified.csv`、`features/g1_*.npz`、`scripts/m5_gamma.py`
+- **#8（M7、M8）其他車種與失敗案例**
+  - `datas/audi.etron` 與 `datas/ford.mustang` 其實是同一台 SUV（nissan.patrol_2021）。
+  - 套用消防車校正 RMSE 1.27 m（高估約 1.1 m）。
+  - 7.2 m 為 0.48 m；翻轉不變；曝光 ±30% 時 0.41–0.62 m；紋理與誤差 ρ = −0.44。
+  - 檔案：`results/multi_vehicle.csv`、`results/failure_cases/`、`scripts/m78_vehicle_failure.py`、`logs/m78.log`
+- **#7 實體相機**：本機無法執行。
+- 文件：更新 RESULTS、NEXT_EXPERIMENTS（M1–M5、M8 ✅，M7 🔄）、IMPROVEMENT_PLAN（A3、C2 ✅，A7 🔄）、AGENTS。
+- GitHub Contributors：main 上所有 commit 都已是 DreamerForJay。但改寫前的 8 個舊 commit 仍以未參照物件留在 GitHub，因此頁面側欄的 Contributors 快取仍可能顯示他人帳號；需 repo 擁有者聯絡 GitHub Support 清除。
+
 ## 2026-11-16｜GUI 改名：學長舊版 與 新版 v3
 
 執行者：Claude Code（實驗室 RTX 5080 主機），應 repo 擁有者要求

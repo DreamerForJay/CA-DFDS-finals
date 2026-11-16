@@ -1,0 +1,128 @@
+{
+  "rmse_m": {
+    "gray": {
+      "hand": 0.3617,
+      "hand_n": 480,
+      "auto": 0.3253,
+      "auto_n": 480,
+      "fullauto": 0.3314,
+      "fullauto_n": 480
+    },
+    "opt(0.8136,0.1782,0.0081)": {
+      "hand": 0.3372,
+      "hand_n": 480,
+      "auto": 0.3097,
+      "auto_n": 480,
+      "fullauto": 0.3168,
+      "fullauto_n": 480
+    },
+    "Jonly(1,0,0)": {
+      "hand": 0.313,
+      "hand_n": 480,
+      "auto": 0.29,
+      "auto_n": 480,
+      "fullauto": 0.2912,
+      "fullauto_n": 480
+    }
+  },
+  "calib_r2": {
+    "gray": {
+      "hand": 0.9337,
+      "auto": 0.941
+    },
+    "opt(0.8136,0.1782,0.0081)": {
+      "hand": 0.942,
+      "auto": 0.9499
+    },
+    "Jonly(1,0,0)": {
+      "hand": 0.9455,
+      "auto": 0.9525
+    }
+  },
+  "iou_test": {
+    "n": 480,
+    "mean": 0.9064,
+    "min": 0.6597,
+    "yolo_mean": 0.925,
+    "fallback_mean": 0.8726,
+    "fallback_count": 170
+  },
+  "time_ms_test": {
+    "yolo_mean": 13.2,
+    "sam_mean": 99.5
+  },
+  "iou_calib": {
+    "n": 390,
+    "mean": 0.8915,
+    "min": 0.7502,
+    "yolo_mean": 0.9164,
+    "fallback_mean": 0.8517,
+    "fallback_count": 150
+  },
+  "time_ms_calib": {
+    "yolo_mean": 13.4,
+    "sam_mean": 107.7
+  },
+  "cadfds_rmse_by_distance_m": {
+    "1.2": {
+      "hand": 0.17,
+      "auto": 0.17,
+      "fullauto": 0.171
+    },
+    "1.7": {
+      "hand": 0.243,
+      "auto": 0.258,
+      "fullauto": 0.258
+    },
+    "2.2": {
+      "hand": 0.207,
+      "auto": 0.334,
+      "fullauto": 0.327
+    },
+    "2.7": {
+      "hand": 0.211,
+      "auto": 0.259,
+      "fullauto": 0.242
+    },
+    "3.2": {
+      "hand": 0.136,
+      "auto": 0.182,
+      "fullauto": 0.158
+    },
+    "3.7": {
+      "hand": 0.329,
+      "auto": 0.201,
+      "fullauto": 0.221
+    },
+    "4.2": {
+      "hand": 0.508,
+      "auto": 0.373,
+      "fullauto": 0.411
+    },
+    "4.7": {
+      "hand": 0.489,
+      "auto": 0.399,
+      "fullauto": 0.434
+    },
+    "5.2": {
+      "hand": 0.481,
+      "auto": 0.409,
+      "fullauto": 0.441
+    },
+    "5.7": {
+      "hand": 0.384,
+      "auto": 0.355,
+      "fullauto": 0.368
+    },
+    "6.2": {
+      "hand": 0.347,
+      "auto": 0.359,
+      "fullauto": 0.346
+    },
+    "6.7": {
+      "hand": 0.257,
+      "auto": 0.288,
+      "fullauto": 0.25
+    }
+  }
+}

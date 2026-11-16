@@ -1,0 +1,384 @@
+{
+  "images": "firetruck_red test set, 30 images over T01-T12 (1.2-6.7 m), 3 warm-up excluded",
+  "cpu": {
+    "cpu_full": {
+      "read": {
+        "mean_ms": 49.59,
+        "median_ms": 53.72,
+        "min_ms": 26.3,
+        "max_ms": 57.44
+      },
+      "mask_load": {
+        "mean_ms": 4.62,
+        "median_ms": 4.61,
+        "min_ms": 4.2,
+        "max_ms": 5.17
+      },
+      "crop": {
+        "mean_ms": 0.0,
+        "median_ms": 0.0,
+        "min_ms": 0.0,
+        "max_ms": 0.0
+      },
+      "blur": {
+        "mean_ms": 1.55,
+        "median_ms": 1.54,
+        "min_ms": 1.31,
+        "max_ms": 2.15
+      },
+      "ciecam02": {
+        "mean_ms": 2283.45,
+        "median_ms": 2284.46,
+        "min_ms": 2249.95,
+        "max_ms": 2314.98
+      },
+      "laplacian_cov": {
+        "mean_ms": 68.86,
+        "median_ms": 63.1,
+        "min_ms": 42.12,
+        "max_ms": 114.38
+      },
+      "curve": {
+        "mean_ms": 0.05,
+        "median_ms": 0.05,
+        "min_ms": 0.04,
+        "max_ms": 0.09
+      },
+      "total": {
+        "mean_ms": 2408.12,
+        "median_ms": 2407.09,
+        "min_ms": 2369.07,
+        "max_ms": 2434.49
+      },
+      "fps": 0.42,
+      "rmse_m": 0.2764,
+      "mean_pixels": 3145728
+    },
+    "cpu_crop": {
+      "read": {
+        "mean_ms": 49.58,
+        "median_ms": 54.17,
+        "min_ms": 25.47,
+        "max_ms": 57.36
+      },
+      "mask_load": {
+        "mean_ms": 4.52,
+        "median_ms": 4.41,
+        "min_ms": 4.16,
+        "max_ms": 5.15
+      },
+      "crop": {
+        "mean_ms": 15.29,
+        "median_ms": 14.55,
+        "min_ms": 8.83,
+        "max_ms": 25.02
+      },
+      "blur": {
+        "mean_ms": 1.23,
+        "median_ms": 1.24,
+        "min_ms": 0.79,
+        "max_ms": 1.9
+      },
+      "ciecam02": {
+        "mean_ms": 1284.7,
+        "median_ms": 1181.02,
+        "min_ms": 624.57,
+        "max_ms": 2299.3
+      },
+      "laplacian_cov": {
+        "mean_ms": 61.92,
+        "median_ms": 57.79,
+        "min_ms": 27.31,
+        "max_ms": 118.64
+      },
+      "curve": {
+        "mean_ms": 0.05,
+        "median_ms": 0.05,
+        "min_ms": 0.04,
+        "max_ms": 0.15
+      },
+      "total": {
+        "mean_ms": 1417.29,
+        "median_ms": 1313.35,
+        "min_ms": 722.87,
+        "max_ms": 2463.86
+      },
+      "fps": 0.71,
+      "rmse_m": 0.2764,
+      "mean_pixels": 1773497
+    },
+    "host": "DESKTOP-GOLKTML",
+    "python": "3.12.7"
+  },
+  "units": "ms per image",
+  "gpu": {
+    "gpu_fp64_full": {
+      "read": {
+        "mean_ms": 52.11,
+        "median_ms": 54.04,
+        "min_ms": 24.52,
+        "max_ms": 62.97
+      },
+      "mask_load": {
+        "mean_ms": 5.51,
+        "median_ms": 4.57,
+        "min_ms": 4.18,
+        "max_ms": 12.54
+      },
+      "crop": {
+        "mean_ms": 0.0,
+        "median_ms": 0.0,
+        "min_ms": 0.0,
+        "max_ms": 0.0
+      },
+      "blur": {
+        "mean_ms": 2.65,
+        "median_ms": 2.62,
+        "min_ms": 2.12,
+        "max_ms": 3.38
+      },
+      "upload": {
+        "mean_ms": 8.94,
+        "median_ms": 8.93,
+        "min_ms": 8.16,
+        "max_ms": 9.74
+      },
+      "ciecam02": {
+        "mean_ms": 17.84,
+        "median_ms": 17.83,
+        "min_ms": 17.57,
+        "max_ms": 18.22
+      },
+      "laplacian_cov": {
+        "mean_ms": 5.73,
+        "median_ms": 5.19,
+        "min_ms": 3.3,
+        "max_ms": 9.98
+      },
+      "curve": {
+        "mean_ms": 0.07,
+        "median_ms": 0.07,
+        "min_ms": 0.06,
+        "max_ms": 0.16
+      },
+      "total": {
+        "mean_ms": 92.85,
+        "median_ms": 95.57,
+        "min_ms": 68.18,
+        "max_ms": 104.3
+      },
+      "fps": 10.77,
+      "rmse_m": 0.2764,
+      "mean_pixels": 3145728
+    },
+    "gpu_fp64_crop": {
+      "read": {
+        "mean_ms": 45.64,
+        "median_ms": 49.81,
+        "min_ms": 24.89,
+        "max_ms": 52.65
+      },
+      "mask_load": {
+        "mean_ms": 4.39,
+        "median_ms": 4.3,
+        "min_ms": 4.16,
+        "max_ms": 5.94
+      },
+      "crop": {
+        "mean_ms": 14.15,
+        "median_ms": 13.4,
+        "min_ms": 8.51,
+        "max_ms": 23.56
+      },
+      "blur": {
+        "mean_ms": 1.53,
+        "median_ms": 1.39,
+        "min_ms": 0.75,
+        "max_ms": 3.31
+      },
+      "upload": {
+        "mean_ms": 5.19,
+        "median_ms": 4.67,
+        "min_ms": 2.44,
+        "max_ms": 10.82
+      },
+      "ciecam02": {
+        "mean_ms": 9.43,
+        "median_ms": 8.3,
+        "min_ms": 4.17,
+        "max_ms": 17.9
+      },
+      "laplacian_cov": {
+        "mean_ms": 5.33,
+        "median_ms": 4.96,
+        "min_ms": 2.51,
+        "max_ms": 9.74
+      },
+      "curve": {
+        "mean_ms": 0.06,
+        "median_ms": 0.06,
+        "min_ms": 0.05,
+        "max_ms": 0.08
+      },
+      "total": {
+        "mean_ms": 85.73,
+        "median_ms": 86.65,
+        "min_ms": 75.02,
+        "max_ms": 98.12
+      },
+      "fps": 11.66,
+      "rmse_m": 0.2764,
+      "mean_pixels": 1773497
+    },
+    "gpu_fp32_full": {
+      "read": {
+        "mean_ms": 46.14,
+        "median_ms": 49.67,
+        "min_ms": 24.5,
+        "max_ms": 58.91
+      },
+      "mask_load": {
+        "mean_ms": 4.33,
+        "median_ms": 4.28,
+        "min_ms": 4.03,
+        "max_ms": 4.95
+      },
+      "crop": {
+        "mean_ms": 0.0,
+        "median_ms": 0.0,
+        "min_ms": 0.0,
+        "max_ms": 0.0
+      },
+      "blur": {
+        "mean_ms": 2.81,
+        "median_ms": 2.72,
+        "min_ms": 2.38,
+        "max_ms": 3.74
+      },
+      "upload": {
+        "mean_ms": 8.78,
+        "median_ms": 8.79,
+        "min_ms": 7.98,
+        "max_ms": 11.05
+      },
+      "ciecam02": {
+        "mean_ms": 3.62,
+        "median_ms": 2.91,
+        "min_ms": 2.67,
+        "max_ms": 5.65
+      },
+      "laplacian_cov": {
+        "mean_ms": 5.12,
+        "median_ms": 4.47,
+        "min_ms": 2.79,
+        "max_ms": 11.01
+      },
+      "curve": {
+        "mean_ms": 0.07,
+        "median_ms": 0.06,
+        "min_ms": 0.06,
+        "max_ms": 0.18
+      },
+      "total": {
+        "mean_ms": 70.87,
+        "median_ms": 72.92,
+        "min_ms": 53.14,
+        "max_ms": 81.33
+      },
+      "fps": 14.11,
+      "rmse_m": 0.2764,
+      "mean_pixels": 3145728
+    },
+    "gpu_fp32_crop": {
+      "read": {
+        "mean_ms": 45.77,
+        "median_ms": 49.04,
+        "min_ms": 25.96,
+        "max_ms": 52.57
+      },
+      "mask_load": {
+        "mean_ms": 4.37,
+        "median_ms": 4.32,
+        "min_ms": 4.21,
+        "max_ms": 4.72
+      },
+      "crop": {
+        "mean_ms": 14.2,
+        "median_ms": 12.74,
+        "min_ms": 8.34,
+        "max_ms": 23.79
+      },
+      "blur": {
+        "mean_ms": 1.57,
+        "median_ms": 1.39,
+        "min_ms": 0.74,
+        "max_ms": 3.13
+      },
+      "upload": {
+        "mean_ms": 5.13,
+        "median_ms": 4.68,
+        "min_ms": 2.51,
+        "max_ms": 10.77
+      },
+      "ciecam02": {
+        "mean_ms": 2.26,
+        "median_ms": 1.68,
+        "min_ms": 1.11,
+        "max_ms": 5.28
+      },
+      "laplacian_cov": {
+        "mean_ms": 4.98,
+        "median_ms": 4.3,
+        "min_ms": 2.32,
+        "max_ms": 11.1
+      },
+      "curve": {
+        "mean_ms": 0.06,
+        "median_ms": 0.06,
+        "min_ms": 0.06,
+        "max_ms": 0.11
+      },
+      "total": {
+        "mean_ms": 78.34,
+        "median_ms": 78.47,
+        "min_ms": 72.27,
+        "max_ms": 85.39
+      },
+      "fps": 12.77,
+      "rmse_m": 0.2764,
+      "mean_pixels": 1773497
+    },
+    "gpu_name": "NVIDIA GeForce RTX 5080",
+    "torch": "2.11.0+cu128",
+    "cuda": "12.8",
+    "host": "DESKTOP-GOLKTML",
+    "python": "3.12.7"
+  },
+  "mask": {
+    "auto_mask_yolo_sam": {
+      "yolo_detect": {
+        "mean_ms": 12.89,
+        "median_ms": 10.25,
+        "min_ms": 9.08,
+        "max_ms": 25.63
+      },
+      "sam": {
+        "mean_ms": 106.94,
+        "median_ms": 106.1,
+        "min_ms": 103.07,
+        "max_ms": 113.76
+      },
+      "wall_incl_io": {
+        "mean_ms": 198.85,
+        "median_ms": 198.31,
+        "min_ms": 183.1,
+        "max_ms": 215.56
+      },
+      "fallback_count": 8,
+      "iou_mean": 0.9244,
+      "note": "sam = SAM image encoding + box decoding; fallback (YOLO miss, < ~3 m) runs one encoding and two box decodings"
+    },
+    "host": "DESKTOP-GOLKTML",
+    "python": "3.12.7"
+  }
+}

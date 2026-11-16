@@ -1,0 +1,43 @@
+suv_runA 0 / 300
+suv_runA 50 / 300
+suv_runA 100 / 300
+suv_runB 150 / 300
+suv_runB 200 / 300
+suv_runB 250 / 300
+flipped done
+exposure 0.5
+exposure 0.7
+exposure 1.4
+exposure 2.0
+{'case': 'reference_firetruck_hand', 'curve': 'hand', 'n': 480, 'dist_range': '1.2-6.7', 'gray_rmse_m': 0.3617, 'cadfds_rmse_m': 0.3372, 'jonly_rmse_m': 0.313}
+{'case': 'reference_firetruck_auto', 'curve': 'auto', 'n': 480, 'dist_range': '1.2-6.7', 'gray_rmse_m': 0.3314, 'cadfds_rmse_m': 0.3168, 'jonly_rmse_m': 0.2912}
+{'case': 'suv_runA', 'curve': 'auto', 'n': 130, 'dist_range': '1.2-7.2', 'gray_rmse_m': 1.1946, 'gray_bias_m': 0.9596, 'cadfds_rmse_m': 1.2242, 'cadfds_bias_m': 0.9805, 'jonly_rmse_m': 1.0739, 'jonly_bias_m': 0.8586}
+{'case': 'suv_runA (1.2-6.7m)', 'curve': 'auto', 'n': 120, 'dist_range': '1.2-6.7', 'gray_rmse_m': 1.2367, 'gray_bias_m': 1.0765, 'cadfds_rmse_m': 1.2689, 'cadfds_bias_m': 1.0957, 'jonly_rmse_m': 1.1116, 'jonly_bias_m': 0.9639}
+{'case': 'suv_runB', 'curve': 'auto', 'n': 130, 'dist_range': '1.2-7.2', 'gray_rmse_m': 1.2067, 'gray_bias_m': 0.9694, 'cadfds_rmse_m': 1.2301, 'cadfds_bias_m': 0.9802, 'jonly_rmse_m': 1.078, 'jonly_bias_m': 0.8535}
+{'case': 'suv_runB (1.2-6.7m)', 'curve': 'auto', 'n': 120, 'dist_range': '1.2-6.7', 'gray_rmse_m': 1.2492, 'gray_bias_m': 1.0876, 'cadfds_rmse_m': 1.2746, 'cadfds_bias_m': 1.0966, 'jonly_rmse_m': 1.115, 'jonly_bias_m': 0.9606}
+{'case': 'beyond_7.2m', 'curve': 'auto', 'n': 40, 'dist_range': '7.2-7.2', 'gray_rmse_m': 0.5309, 'gray_bias_m': -0.5284, 'cadfds_rmse_m': 0.4798, 'cadfds_bias_m': -0.4729, 'jonly_rmse_m': 0.4559, 'jonly_bias_m': -0.4464}
+{'case': 'flipped', 'curve': 'hand', 'n': 480, 'dist_range': '1.2-6.7', 'gray_rmse_m': 0.3617, 'gray_bias_m': 0.1016, 'cadfds_rmse_m': 0.3372, 'cadfds_bias_m': 0.0555, 'jonly_rmse_m': 0.313, 'jonly_bias_m': 0.0431}
+{'case': 'exposure_x0.5', 'curve': 'hand', 'n': 240, 'dist_range': '1.2-6.7', 'gray_rmse_m': 0.5954, 'gray_bias_m': -0.45, 'cadfds_rmse_m': 0.7902, 'cadfds_bias_m': -0.6217, 'jonly_rmse_m': 0.7496, 'jonly_bias_m': -0.6253, 'clipped_frac_mean': 0.0}
+{'case': 'exposure_x0.7', 'curve': 'hand', 'n': 240, 'dist_range': '1.2-6.7', 'gray_rmse_m': 0.4101, 'gray_bias_m': -0.1753, 'cadfds_rmse_m': 0.4882, 'cadfds_bias_m': -0.2894, 'jonly_rmse_m': 0.4441, 'jonly_bias_m': -0.287, 'clipped_frac_mean': 0.0}
+{'case': 'exposure_x1.4', 'curve': 'hand', 'n': 240, 'dist_range': '1.2-6.7', 'gray_rmse_m': 0.605, 'gray_bias_m': 0.3678, 'cadfds_rmse_m': 0.6203, 'cadfds_bias_m': 0.3981, 'jonly_rmse_m': 0.622, 'jonly_bias_m': 0.4085, 'clipped_frac_mean': 0.2125}
+{'case': 'exposure_x2.0', 'curve': 'hand', 'n': 240, 'dist_range': '1.2-6.7', 'gray_rmse_m': 0.8428, 'gray_bias_m': 0.5794, 'cadfds_rmse_m': 0.916, 'cadfds_bias_m': 0.6447, 'jonly_rmse_m': 0.9289, 'jonly_bias_m': 0.6747, 'clipped_frac_mean': 0.4662}
+texture red {'color': 'red', 'n': 120, 'texture_f22_mean': 28.555, 'cadfds_rmse_m': 0.2759}
+texture green {'color': 'green', 'n': 120, 'texture_f22_mean': 37.792, 'cadfds_rmse_m': 0.1956}
+texture blue {'color': 'blue', 'n': 120, 'texture_f22_mean': 30.961, 'cadfds_rmse_m': 0.3479}
+texture black {'color': 'black', 'n': 120, 'texture_f22_mean': 32.562, 'cadfds_rmse_m': 0.4684}
+texture gray {'color': 'gray', 'n': 120, 'texture_f22_mean': 29.895, 'cadfds_rmse_m': 0.3842}
+texture deepGray {'color': 'deepGray', 'n': 120, 'texture_f22_mean': 37.043, 'cadfds_rmse_m': 0.2242}
+texture deep160Gray {'color': 'deep160Gray', 'n': 120, 'texture_f22_mean': 44.822, 'cadfds_rmse_m': 0.2848}
+texture deepRed {'color': 'deepRed', 'n': 120, 'texture_f22_mean': 44.106, 'cadfds_rmse_m': 0.3925}
+texture deepGreen {'color': 'deepGreen', 'n': 120, 'texture_f22_mean': 40.704, 'cadfds_rmse_m': 0.2466}
+texture deepBlue {'color': 'deepBlue', 'n': 120, 'texture_f22_mean': 30.966, 'cadfds_rmse_m': 0.2673}
+texture brown {'color': 'brown', 'n': 120, 'texture_f22_mean': 31.319, 'cadfds_rmse_m': 0.3252}
+texture chartreuse {'color': 'chartreuse', 'n': 120, 'texture_f22_mean': 27.971, 'cadfds_rmse_m': 0.2666}
+texture cyan {'color': 'cyan', 'n': 120, 'texture_f22_mean': 27.814, 'cadfds_rmse_m': 0.2689}
+texture magenta {'color': 'magenta', 'n': 120, 'texture_f22_mean': 28.34, 'cadfds_rmse_m': 0.289}
+texture orange {'color': 'orange', 'n': 120, 'texture_f22_mean': 27.21, 'cadfds_rmse_m': 0.4594}
+texture rose {'color': 'rose', 'n': 120, 'texture_f22_mean': 26.487, 'cadfds_rmse_m': 0.4981}
+texture springGreen {'color': 'springGreen', 'n': 120, 'texture_f22_mean': 26.987, 'cadfds_rmse_m': 0.4758}
+texture violet {'color': 'violet', 'n': 120, 'texture_f22_mean': 27.514, 'cadfds_rmse_m': 0.495}
+texture yellow {'color': 'yellow', 'n': 120, 'texture_f22_mean': 27.91, 'cadfds_rmse_m': 0.242}
+spearman texture vs rmse -0.4421052631578948 0.058056754167625686

@@ -1,0 +1,27 @@
+﻿vehicle,run,folder,dist_m,n,fallback_masks,mask_px_mean,gray_rmse_m,gray_bias_m,cadfds_rmse_m,cadfds_bias_m,jonly_rmse_m,jonly_bias_m
+nissan.patrol_2021 (SUV),suv_runA,audi.etron,1.2,10,10,2975614,0.3956,0.3941,0.3035,0.3019,0.4474,0.4463
+nissan.patrol_2021 (SUV),suv_runA,audi.etron,1.7,10,0,2654987,1.8478,1.8474,1.8208,1.8205,1.6584,1.6581
+nissan.patrol_2021 (SUV),suv_runA,audi.etron,2.2,10,0,1953251,1.9231,1.9221,2.0247,2.0239,1.7694,1.7686
+nissan.patrol_2021 (SUV),suv_runA,audi.etron,2.7,10,0,1519348,1.6692,1.6683,1.7769,1.7762,1.5121,1.5112
+nissan.patrol_2021 (SUV),suv_runA,audi.etron,3.2,10,0,1158373,1.5314,1.5305,1.6054,1.6046,1.3762,1.3752
+nissan.patrol_2021 (SUV),suv_runA,audi.etron,3.7,10,0,897271,1.4209,1.4186,1.451,1.4489,1.2672,1.2649
+nissan.patrol_2021 (SUV),suv_runA,audi.etron,4.2,10,0,716384,1.219,1.2169,1.2375,1.2356,1.0759,1.0737
+nissan.patrol_2021 (SUV),suv_runA,audi.etron,4.7,10,0,587938,1.0767,1.075,1.0748,1.0732,0.9301,0.9282
+nissan.patrol_2021 (SUV),suv_runA,audi.etron,5.2,10,0,491119,0.907,0.9049,0.9043,0.9023,0.7878,0.7854
+nissan.patrol_2021 (SUV),suv_runA,audi.etron,5.7,10,0,413922,0.5721,0.5698,0.5715,0.5692,0.4664,0.4632
+nissan.patrol_2021 (SUV),suv_runA,audi.etron,6.2,10,0,358242,0.3728,0.3704,0.3759,0.3732,0.3127,0.3085
+nissan.patrol_2021 (SUV),suv_runA,audi.etron,6.7,10,0,309077,0.0268,0.0002,0.0366,0.0189,0.0435,-0.0167
+nissan.patrol_2021 (SUV),suv_runA,audi.etron,7.2,10,0,270088,0.4434,-0.4433,0.4027,-0.4025,0.4051,-0.4044
+nissan.patrol_2021 (SUV),suv_runB,ford.mustang,1.2,10,10,2935540,0.4716,0.4713,0.3496,0.3491,0.4948,0.4945
+nissan.patrol_2021 (SUV),suv_runB,ford.mustang,1.7,10,0,2661377,1.85,1.8495,1.8115,1.8112,1.6492,1.6488
+nissan.patrol_2021 (SUV),suv_runB,ford.mustang,2.2,10,0,1953067,1.9375,1.9364,2.0315,2.0307,1.7678,1.7669
+nissan.patrol_2021 (SUV),suv_runB,ford.mustang,2.7,10,0,1519181,1.7297,1.7287,1.8279,1.8272,1.5588,1.558
+nissan.patrol_2021 (SUV),suv_runB,ford.mustang,3.2,10,0,1158254,1.5609,1.5599,1.6298,1.6291,1.3991,1.3982
+nissan.patrol_2021 (SUV),suv_runB,ford.mustang,3.7,10,0,897912,1.4198,1.4176,1.4513,1.4492,1.2657,1.2634
+nissan.patrol_2021 (SUV),suv_runB,ford.mustang,4.2,10,0,716674,1.2136,1.2116,1.228,1.2261,1.0638,1.0617
+nissan.patrol_2021 (SUV),suv_runB,ford.mustang,4.7,10,0,587685,1.0611,1.0593,1.0532,1.0514,0.9049,0.9028
+nissan.patrol_2021 (SUV),suv_runB,ford.mustang,5.2,10,0,491010,0.904,0.9015,0.8919,0.8894,0.7699,0.7668
+nissan.patrol_2021 (SUV),suv_runB,ford.mustang,5.7,10,0,414114,0.5779,0.575,0.5669,0.564,0.4588,0.4546
+nissan.patrol_2021 (SUV),suv_runB,ford.mustang,6.2,10,0,358629,0.3638,0.3609,0.3527,0.3492,0.2829,0.2772
+nissan.patrol_2021 (SUV),suv_runB,ford.mustang,6.7,10,0,309281,0.0378,-0.0204,0.0415,-0.0169,0.0811,-0.0659
+nissan.patrol_2021 (SUV),suv_runB,ford.mustang,7.2,10,0,270458,0.4496,-0.4494,0.4178,-0.4173,0.432,-0.4309

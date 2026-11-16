@@ -13,6 +13,15 @@
 - 方法比較（480 張，整體 RMSE）：CA-DFDS 0.337 m、灰階 0.362 m；UniDepth 原始 1.879 m、線性校正 **0.357 m**；Depth Pro 原始 0.871 m、線性校正 0.751 m。全自動遮罩下 CA-DFDS 為 0.310 m（RESULTS 補充 H、J）。
 - **報告口徑**：公平比較時，CA-DFDS 與 UniDepth 準確度相當；CA-DFDS 近距離（≤ 3.7 m）較準，UniDepth 遠距離較準。不要寫「大幅勝過深度模型」。
 - 成果已上傳 Google Drive（第 4 節）；commit 作者已修正為 DreamerForJay。
+- **2026-11-16 GitHub issue #1–#8 實驗**（RESULTS「2026-11-16 GitHub issue 實驗」一節，補充 K–Q）：
+  - #1：GPU 版 CIECAM02 `cadfds_gpu.py`（PyTorch，與 CPU 誤差 1e-13），整條管線 10.8–14.1 FPS。
+  - #3：式 (5)／(7) 對照。
+  - #4：消融 E（6 色校正，權重仍集中於 J）。
+  - #5：校正也用自動遮罩的全自動流程，0.317 m。
+  - #6：現有資料沒有 gamma 混用；改用線性光後各方法改善。
+  - #2：前期研究硬體未載明，需問作者。
+  - #8：SUV（注意 `datas/audi.etron`、`datas/ford.mustang` 兩個資料夾其實都是同一台 nissan.patrol_2021）＋失敗案例。
+  - #7（實體相機）無法在本機完成。
 
 ### 下一步候選（尚未開始）
 
@@ -48,6 +57,7 @@
 | 共用測試遮罩 | `<DATA>/firetruck_black/Test_dataset_Focus1500cm_f1.4_f22.0_mask`（各色遮罩已驗證完全相同） |
 | 學長原始程式 | `Carla-0.10.0-Win64-Shipping/test_ciecam.ipynb`（已複製到 `results/original_code/`） |
 | torch 環境 | `D:\Carla-0.10.0-Win64-Shipping\.venv`（torch 2.11 + cu128、ultralytics 8.4（YOLO11m）、segment_anything、UniDepth、Depth Pro；RTX 5080 可用）。GUI 會自動以子程序啟動 `baselines/deep_worker.py`。模型權重在 `Carla-0.10.0-Win64-Shipping/models*`；UniDepth 權重在 HuggingFace 快取，需設定 `HF_HUB_OFFLINE=1` |
+| GPU 版 CA-DFDS | `cadfds_gpu.py`（只需 torch＋cv2，在 `../.venv` 執行）；`CIECAM02GPU().cov_from_bgr(img, mask)` 與 `cadfds_core.laplacian_cov` 輸出相同 |
 | rclone | `D:\Carla-0.10.0-Win64-Shipping\tools\rclone\rclone.exe`，remote 名稱 `cadfds_gdrive`（設定檔在使用者 AppData，勿提交） |
 
 注意：PowerShell 的萬用字元路徑（如 `T*\R`）可能不展開，統計檔案請用 Git Bash。
