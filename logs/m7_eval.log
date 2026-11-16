@@ -1,0 +1,26 @@
+saved features/mv_sedan_charger_white_calib.npz 130
+saved features/mv_sedan_charger_gray_calib.npz 130
+saved features/mv_sedan_charger_black_calib.npz 130
+saved features/mv_sedan_charger_red_test.npz 130
+saved features/mv_sedan_charger_blue_test.npz 130
+saved features/mv_sedan_charger_black_test.npz 130
+saved features/mv_suv_patrol_white_calib.npz 130
+saved features/mv_suv_patrol_gray_calib.npz 130
+saved features/mv_suv_patrol_black_calib.npz 130
+saved features/mv_suv_patrol_red_test.npz 130
+saved features/mv_suv_patrol_blue_test.npz 130
+saved features/mv_suv_patrol_black_test.npz 130
+saved features/mv_truck_ambulance_white_calib.npz 130
+saved features/mv_truck_ambulance_gray_calib.npz 130
+saved features/mv_truck_ambulance_black_calib.npz 130
+saved features/mv_truck_ambulance_red_test.npz 130
+saved features/mv_truck_ambulance_blue_test.npz 130
+saved features/mv_truck_ambulance_black_test.npz 130
+saved features/mv_truck_carlacola_native_test.npz 130
+
+RMSE (m), all colors, CA-DFDS paper weights / gray / J only:
+A_firetruck firetruck: 0.337/0.362/0.313 (bias +0.06) | sedan_charger: 1.577/1.651/1.503 (bias +1.31) | suv_patrol: 1.058/1.093/0.930 (bias +0.85) | truck_ambulance: 1.129/1.168/1.127 (bias +0.86) | truck_carlacola: 0.527/0.608/0.505 (bias +0.42)
+B_own firetruck: 0.337/0.362/0.313 (bias +0.06) | sedan_charger: 0.469/0.552/0.540 (bias +0.13) | suv_patrol: 0.268/0.290/0.274 (bias -0.01) | truck_ambulance: 0.173/0.177/0.170 (bias +0.02)
+C_pooled firetruck: 0.831/0.792/0.782 (bias -0.75) | sedan_charger: 0.785/0.855/0.798 (bias +0.54) | suv_patrol: 0.444/0.419/0.431 (bias -0.01) | truck_ambulance: 0.367/0.372/0.411 (bias +0.31) | truck_carlacola: 0.516/0.404/0.441 (bias -0.41)
+D_leave_one_out firetruck: 1.132/1.090/1.061 (bias -1.07) | sedan_charger: 0.936/0.997/0.928 (bias +0.69) | suv_patrol: 0.495/0.464/0.477 (bias -0.01) | truck_ambulance: 0.576/0.540/0.643 (bias +0.49) | truck_carlacola: 0.516/0.404/0.441 (bias -0.41)
+texture f/22 (red test): {'sedan_charger': 28.707, 'suv_patrol': 30.074, 'truck_ambulance': 46.524}

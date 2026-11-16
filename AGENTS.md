@@ -22,6 +22,9 @@
   - #2：前期研究硬體未載明，需問作者。
   - #8：SUV（注意 `datas/audi.etron`、`datas/ford.mustang` 兩個資料夾其實都是同一台 nissan.patrol_2021）＋失敗案例。
   - #7（實體相機）無法在本機完成。
+- **2026-11-16 M7 多車種資料（CARLA 重新產生）**（RESULTS 補充 R）：
+  - 校正依車種而定：自己車種校正 0.17–0.47 m，消防車校正套到其他車 0.5–1.6 m。
+  - 資料在 `<DATA>/multivehicle/`，產生方式：`scripts/run_multivehicle.sh`（需先啟動 CARLA server）。
 
 ### 下一步候選（尚未開始）
 
@@ -58,6 +61,7 @@
 | 共用測試遮罩 | `<DATA>/firetruck_black/Test_dataset_Focus1500cm_f1.4_f22.0_mask`（各色遮罩已驗證完全相同） |
 | 學長原始程式 | `Carla-0.10.0-Win64-Shipping/test_ciecam.ipynb`（已複製到 `results/original_code/`） |
 | torch 環境 | `D:\Carla-0.10.0-Win64-Shipping\.venv`（torch 2.11 + cu128、ultralytics 8.4（YOLO11m）、segment_anything、UniDepth、Depth Pro；RTX 5080 可用）。GUI 會自動以子程序啟動 `baselines/deep_worker.py`。模型權重在 `Carla-0.10.0-Win64-Shipping/models*`；UniDepth 權重在 HuggingFace 快取，需設定 `HF_HUB_OFFLINE=1` |
+| 多車種資料 | `<DATA>/multivehicle/<車種>_<色>/{Test,Training}_dataset_Focus1500cm_f1.4_f22.0`（+`_mask/T<n>.npy`，CARLA instance segmentation 產生），以及各組的 `meta_*.json`。CARLA 0.10 中能改色的車種：dodge.charger、nissan.patrol、ambulance.ford（部分）；lincoln.mkz、carlacola、sprinter 會忽略 color。用 `../venv-carla` 執行 `scripts/gen_multivehicle.py` |
 | GPU 版 CA-DFDS | `cadfds_gpu.py`（只需 torch＋cv2，在 `../.venv` 執行）；`CIECAM02GPU().cov_from_bgr(img, mask)` 與 `cadfds_core.laplacian_cov` 輸出相同 |
 | rclone | `D:\Carla-0.10.0-Win64-Shipping\tools\rclone\rclone.exe`，remote 名稱 `cadfds_gdrive`（設定檔在使用者 AppData，勿提交） |
 

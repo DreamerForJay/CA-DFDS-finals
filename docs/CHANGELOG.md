@@ -4,6 +4,30 @@
 
 ---
 
+## 2026-11-16｜M7：用 CARLA 重新產生多車種資料
+
+執行者：Claude Code（實驗室 RTX 5080 主機）
+
+- 新增 `scripts/gen_multivehicle.py`：
+  - 拍攝設定同 `get_dataset2.py`，但明確指定車種、不 fallback。
+  - 加入 instance segmentation 相機，自動產生遮罩。
+- 新增 `scripts/run_multivehicle.sh`：
+  - 產生轎車 charger、SUV patrol、貨車 ambulance，各 3 個測試色（紅／藍／黑）與 3 個校正色（白／灰／黑）。
+  - 另產生 carlacola 原廠塗裝的測試集。
+  - 共 19 組，約 75 分鐘，存放於 `<DATA>/multivehicle/`（不進 git、不進 Drive）。
+- 新增 `scripts/m7_multivehicle_eval.py`：以 4 種校正方式評估。
+- 結果見 RESULTS 補充 R：
+  - 消防車校正套到其他車：RMSE 0.5–1.6 m（高估）。
+  - 自己車種校正：0.17–0.47 m。
+  - 留一車種：0.50–1.13 m。
+  - 結論：校正依車種而定，跨車種需要紋理正規化。
+- 檔案：
+  - `results/multi_vehicle_carla*.{csv,jpg}`、`features/mv_*.npz`
+  - `logs/multivehicle_gen.log`、`logs/m7_eval.log`
+  - RESULTS、NEXT_EXPERIMENTS（M7 ✅）、IMPROVEMENT_PLAN（A7）、AGENTS
+
+---
+
 ## 2026-11-16｜重建 repo、issue 改為文件
 
 執行者：Claude Code（實驗室 RTX 5080 主機），應 repo 擁有者要求
