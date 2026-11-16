@@ -528,6 +528,7 @@
   - `results/multi_vehicle_carla_by_distance.csv`
   - `results/multi_vehicle_carla_examples.jpg`（4.2 m 範例與 CARLA 遮罩）
   - `features/mv_*.npz`（含 `texture_f22`）
+- 投影片格式的完整報告（各色逐距離表、校正曲線、3.7 m 前後誤差）：[docs/M7_MULTIVEHICLE_REPORT.md](docs/M7_MULTIVEHICLE_REPORT.md)
 
 ## issue #7｜實體相機實拍
 

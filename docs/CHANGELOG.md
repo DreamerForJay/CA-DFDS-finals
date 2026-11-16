@@ -4,6 +4,20 @@
 
 ---
 
+## 2026-11-16｜M7 數據報告（投影片格式）
+
+執行者：Claude Code（實驗室 RTX 5080 主機），應 repo 擁有者要求
+
+- 新增 `scripts/m7_report.py`，依週會投影片格式產生 M7 圖表，存放於 `results/m7_report/`：
+  - 各車種、各色的測試結果表（原始距離／預測距離／差距／誤差百分比／RMSE）。
+  - 各車種白／黑／灰校正曲線。
+  - 3.7 m 前後平均誤差長條圖。
+  - 校正方式比較圖。
+  - `tables.json`。
+- 新增報告 `docs/M7_MULTIVEHICLE_REPORT.md`（圖表與 Markdown 表格）；RESULTS 補充 R 加上連結。
+
+---
+
 ## 2026-11-16｜M7：用 CARLA 重新產生多車種資料
 
 執行者：Claude Code（實驗室 RTX 5080 主機）
