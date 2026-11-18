@@ -1,0 +1,23 @@
+{
+  "asset": "C-C1 input→output",
+  "distances_m": [
+    1.2,
+    3.7,
+    6.7
+  ],
+  "pred_m": [
+    1.3702,
+    3.7355,
+    6.2304
+  ],
+  "video": {
+    "file": "video.mp4",
+    "seconds": 31.3,
+    "mb": 3.79
+  },
+  "video_short": {
+    "file": "video_short.mp4",
+    "seconds": 11.0,
+    "mb": 1.28
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "1.2m": {
+    "distance_tag": "近",
+    "color": "red",
+    "T": 1,
+    "shot": 1,
+    "gt_m": 1.2,
+    "image": "firetruck_red\\Test_dataset_Focus1500cm_f1.4_f22.0\\T01\\R\\D1.2_shot01.png",
+    "mask_pixels": 3145728,
+    "mask_bbox_xywh": [
+      0,
+      0,
+      2047,
+      1536
+    ],
+    "J_mean": 5.806,
+    "ac_mean": 9.83,
+    "bc_mean": 6.501,
+    "std_lap_J": 0.4009,
+    "std_lap_ac": 3.1346,
+    "std_lap_bc": 3.0817,
+    "weights": [
+      0.8136,
+      0.1782,
+      0.0081
+    ],
+    "sigma": 0.5493,
+    "sigma_from_features": 0.5493,
+    "calib_coef_cm": [
+      -6.530289102325386,
+      125.9453609693362,
+      69.80466978205851
+    ],
+    "pred_m": 1.3702,
+    "err_m": 0.1702
+  },
+  "3.7m": {
+    "distance_tag": "中",
+    "color": "red",
+    "T": 6,
+    "shot": 1,
+    "gt_m": 3.7,
+    "image": "firetruck_red\\Test_dataset_Focus1500cm_f1.4_f22.0\\T06\\R\\D3.7_shot01.png",
+    "mask_pixels": 1717832,
+    "mask_bbox_xywh": [
+      157,
+      0,
+      1746,
+      1536
+    ],
+    "J_mean": 61.219,
+    "ac_mean": 16.661,
+    "bc_mean": 13.576,
+    "std_lap_J": 3.5194,
+    "std_lap_ac": 3.3761,
+    "std_lap_bc": 2.1129,
+    "weights": [
+      0.8136,
+      0.1782,
+      0.0081
+    ],
+    "sigma": 2.8257,
+    "sigma_from_features": 2.8257,
+    "calib_coef_cm": [
+      -6.530289102325386,
+      125.9453609693362,
+      69.80466978205851
+    ],
+    "pred_m": 3.7355,
+    "err_m": 0.0355
+  },
+  "6.7m": {
+    "distance_tag": "遠",
+    "color": "red",
+    "T": 12,
+    "shot": 1,
+    "gt_m": 6.7,
+    "image": "firetruck_red\\Test_dataset_Focus1500cm_f1.4_f22.0\\T12\\R\\D6.7_shot01.png",
+    "mask_pixels": 827947,
+    "mask_bbox_xywh": [
+      546,
+      0,
+      958,
+      1536
+    ],
+    "J_mean": 70.101,
+    "ac_mean": 12.697,
+    "bc_mean": 11.211,
+    "std_lap_J": 8.5973,
+    "std_lap_ac": 7.9493,
+    "std_lap_bc": 3.7802,
+    "weights": [
+      0.8136,
+      0.1782,
+      0.0081
+    ],
+    "sigma": 6.7671,
+    "sigma_from_features": 6.7671,
+    "calib_coef_cm": [
+      -6.530289102325386,
+      125.9453609693362,
+      69.80466978205851
+    ],
+    "pred_m": 6.2304,
+    "err_m": -0.4696
+  }
+}

@@ -10,6 +10,7 @@
 | UniDepth V2 (linear calib.) | 0.303 | 0.392 | 0.317 | 0.405 | **0.357** | 0.288 | -0.120 | 27 ms |
 | ML-Depth-Pro (raw) | 0.603 | 0.924 | 1.068 | 0.821 | **0.871** | 0.678 | -0.380 | 260 ms |
 | ML-Depth-Pro (linear calib.) | 0.648 | 0.827 | 0.978 | 0.439 | **0.751** | 0.476 | +0.118 | 260 ms |
+| STMAP (Subbarao 1994, two apertures) | 0.412 | 0.680 | 0.344 | 0.406 | **0.478** | 0.348 | -0.152 | 139 ms |
 
 ### Fully automatic masks (YOLO11→SAM)
 

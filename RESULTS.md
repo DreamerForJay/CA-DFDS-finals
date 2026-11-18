@@ -530,6 +530,40 @@
   - `features/mv_*.npz`（含 `texture_f22`）
 - 投影片格式的完整報告（各色逐距離表、校正曲線、3.7 m 前後誤差）：[docs/M7_MULTIVEHICLE_REPORT.md](docs/M7_MULTIVEHICLE_REPORT.md)
 
+## 補充 S｜STMAP 基準與旋轉 180° 穩健性（2026-11-18，Demo 素材 C-E1／C-F1）
+
+**STMAP（Subbarao & Surya 1994，空間域 DFD）**
+
+- 指令：`python scripts/stmap_eval.py`（σ）、`python scripts/stmap_eval.py --timing`（計時）→ `scripts/build_calibrations.py` → `scripts/compare_methods.py`
+- 公式與學長 `stmap_dfds_rotation_eval.py` 相同：G = √(16·Σ(g1−g2)² / Σ(∇²g1)²)，σ = |G/(A²−1)|^¼，A = 22/1.4。
+- 輸入：同一位置的 **f/1.4（R）與 f/22（L）兩張灰階影像**（CA-DFDS 只需 f/1.4 一張）。STMAP 沒有分割能力，在手繪遮罩的外框內整塊計算。
+- 校正：與 CA-DFDS 相同的校正集（白＋灰＋黑 1.0–7.0 m，每距離平均）、二次曲線，R² 0.936。學長原腳本只用白色校正、DFDS 用三次曲線，此處統一成和其他方法相同的協定。
+
+| 測試集 480 張 | 紅 | 綠 | 藍 | 黑 | 整體 RMSE | 平均偏差 | 每張時間 |
+|---|---|---|---|---|---|---|---|
+| STMAP | 0.412 | 0.680 | 0.344 | 0.406 | **0.478** | −0.152 | 139 ms（CPU，讀兩張影像） |
+| CA-DFDS（參考） | 0.276 | 0.196 | 0.348 | 0.468 | 0.337 | +0.056 | 2264 ms（CPU）／73 ms（GPU fp32） |
+
+- 各距離：STMAP 在 1.2 m 誤差最大（1.05 m），其餘 0.13–0.60 m。
+
+**旋轉 180°**（論文 Table 4 的設定；`baselines/demo_deep.py`、`scripts/make_demo_assets.py --only C-F1`）
+
+- 影像以 `cv2.ROTATE_180` 旋轉（不是鏡射）。CA-DFDS 與深度模型的遮罩跟著旋轉（代表分割重新找到車）；STMAP 的取樣框留在原位。深度模型沿用原本的線性校正。
+- CA-DFDS 重新計算了 480 張旋轉後的 CIECAM02 特徵（不是直接沿用）。
+
+| 方法 | 原始 RMSE | 旋轉後 RMSE | 原始 → 旋轉後誤差標準差 |
+|---|---|---|---|
+| CA-DFDS | 0.337 | **0.337**（最大變化 0.000 m） | 0.333 → 0.333 |
+| STMAP | 0.478 | 0.785 | 0.454 → 0.624 |
+| UniDepth V2（線性校正） | 0.357 | 3.013 | 0.336 → 1.251 |
+| ML-Depth-Pro（線性校正） | 0.751 | 1.524 | 0.741 → 0.816 |
+| UniDepth V2（原始） | 1.879 | 1.608 | 0.421 → 1.222 |
+| ML-Depth-Pro（原始） | 0.871 | 1.827 | 0.784 → 0.938 |
+
+- CA-DFDS 不變的原因：3×3 高斯與拉普拉斯核對 180° 旋轉對稱，遮罩內的統計量相同，所以結果和構圖無關。
+- UniDepth 原始輸出的 RMSE 旋轉後反而下降，是因為原本整體高估約 1.8 m，旋轉後估測值整體變小，偏差剛好抵銷；誤差標準差由 0.42 增為 1.22 m，穩定度其實變差。
+- 檔案：`features/stmap_{cal,test}.npz`、`results/demo/rotation_deep.csv`、`results/demo/rotation_cadfds.npz`、`results/demo/C-F1_before_after/rotation_{per_image.csv,summary.json}`。
+
 ## issue #7｜實體相機實拍
 
 - 未執行：需要實體相機，以及在已知距離拍攝模型車或實車，無法在實驗室主機上以程式完成。

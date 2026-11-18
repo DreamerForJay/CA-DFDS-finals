@@ -3,14 +3,15 @@
 本檔是所有 AI（Claude、Codex、Copilot…）與同學接手本 repo 時**第一個要讀的檔案**。
 專案背景與任務清單見 [README.md](README.md)；最新進度見 [docs/CHANGELOG.md](docs/CHANGELOG.md)。
 
-## 1. 目前狀態（2026-11-16）
+## 1. 目前狀態（2026-11-18）
 
 - README 任務 A–G **全部完成**，數值結果見 [RESULTS.md](RESULTS.md)，完整流程與發現見 [docs/LAB_REPORT_2026-11-15.md](docs/LAB_REPORT_2026-11-15.md)。
 - **待決事項**：校正用黑色車影像已於 2026-07-31 重新產生，論文校正曲線（R² 0.969）無法以現有資料重現（現為 0.942）。需由學長／指導教授決定以哪一版為準（報告第 4 節）。
 - 改善計畫的剩餘項目見 [docs/IMPROVEMENT_PLAN.md](docs/IMPROVEMENT_PLAN.md)（⬜／🔄）。
 - 整體架構、遮罩方式（目前是手繪遮罩，SAM 已整合進 GUI，YOLO 尚未使用）、與其他方法比較：見 [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)。
 - GUI：**新版 v3** 是 `gui_new_v3.py`，點兩下 `run_gui_new.bat` 開啟；**學長舊版** 是 `gui_old_senior.py`（`run_gui_old_senior.bat`），保留作對照，不再修改。新版可同時比較 6 種方法，全自動遮罩（YOLO → SAM）、可調整的框、影片輸入，並偵測硬體。說明見 [docs/GUI_DEMO.md](docs/GUI_DEMO.md)。
-- 方法比較（480 張，整體 RMSE）：CA-DFDS 0.337 m、灰階 0.362 m；UniDepth 原始 1.879 m、線性校正 **0.357 m**；Depth Pro 原始 0.871 m、線性校正 0.751 m。全自動遮罩下 CA-DFDS 為 0.310 m（RESULTS 補充 H、J）。
+- 方法比較（480 張，整體 RMSE）：CA-DFDS 0.337 m、灰階 0.362 m；UniDepth 原始 1.879 m、線性校正 **0.357 m**；Depth Pro 原始 0.871 m、線性校正 0.751 m；STMAP（兩張影像）0.478 m。全自動遮罩下 CA-DFDS 為 0.310 m（RESULTS 補充 H、J、S）。旋轉 180° 後 CA-DFDS 不變，UniDepth（線性校正）升到 3.01 m（補充 S）。
+- **2026-11-18 Demo 素材**（docs/DEMO_ASSETS.md 最優先）：`results/demo/`（總表 `results/demo/README.md`），產生：`scripts/stmap_eval.py` → `baselines/demo_deep.py`（torch）→ `scripts/make_demo_assets.py` → `scripts/export_web_assets.py`（輸出到網頁 repo `../CA-DFDS/docs/assets/demo/`，含 `manifest.json`）。網頁 repo `DreamerForJay/CA-DFDS` 已 clone 在 `D:\Carla-0.10.0-Win64-Shipping\CA-DFDS`（repo 內設定 DreamerForJay 身分）。尚缺：C-B1 CARLA 第三人稱影片、C-J1／C-L1 連續情境、C-G1 GUI 錄影。
 - **報告口徑**：公平比較時，CA-DFDS 與 UniDepth 準確度相當；CA-DFDS 近距離（≤ 3.7 m）較準，UniDepth 遠距離較準。不要寫「大幅勝過深度模型」。
 - 成果已上傳 Google Drive（第 4 節）。2026-11-16 repo 已重建（同名同網址），歷史中只有 DreamerForJay 的 commit；舊 repo 與他人帳號的殘留 commit 已刪除。
 - **2026-11-16 GitHub issue #1–#8 實驗**（RESULTS「2026-11-16 GitHub issue 實驗」一節，補充 K–Q）：
@@ -62,6 +63,7 @@
 | 學長原始程式 | `Carla-0.10.0-Win64-Shipping/test_ciecam.ipynb`（已複製到 `results/original_code/`） |
 | torch 環境 | `D:\Carla-0.10.0-Win64-Shipping\.venv`（torch 2.11 + cu128、ultralytics 8.4（YOLO11m）、segment_anything、UniDepth、Depth Pro；RTX 5080 可用）。GUI 會自動以子程序啟動 `baselines/deep_worker.py`。模型權重在 `Carla-0.10.0-Win64-Shipping/models*`；UniDepth 權重在 HuggingFace 快取，需設定 `HF_HUB_OFFLINE=1` |
 | 多車種資料 | `<DATA>/multivehicle/<車種>_<色>/{Test,Training}_dataset_Focus1500cm_f1.4_f22.0`（+`_mask/T<n>.npy`，CARLA instance segmentation 產生），以及各組的 `meta_*.json`。CARLA 0.10 中能改色的車種：dodge.charger、nissan.patrol、ambulance.ford（部分）；lincoln.mkz、carlacola、sprinter 會忽略 color。用 `../venv-carla` 執行 `scripts/gen_multivehicle.py` |
+| 網頁 repo | `D:\Carla-0.10.0-Win64-Shipping\CA-DFDS`（DreamerForJay/CA-DFDS，GitHub Pages 來源 `/docs`）；demo 素材在 `docs/assets/demo/`，由本 repo `scripts/export_web_assets.py` 產生，不要手改 |
 | GPU 版 CA-DFDS | `cadfds_gpu.py`（只需 torch＋cv2，在 `../.venv` 執行）；`CIECAM02GPU().cov_from_bgr(img, mask)` 與 `cadfds_core.laplacian_cov` 輸出相同 |
 | rclone | `D:\Carla-0.10.0-Win64-Shipping\tools\rclone\rclone.exe`，remote 名稱 `cadfds_gdrive`（設定檔在使用者 AppData，勿提交） |
 

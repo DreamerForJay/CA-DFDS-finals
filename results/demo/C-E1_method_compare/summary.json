@@ -1,0 +1,70 @@
+{
+  "asset": "C-E1 1x4 method comparison",
+  "frames": 48,
+  "distance_range_m": [
+    1.2,
+    6.7
+  ],
+  "colors": [
+    "red",
+    "green",
+    "blue",
+    "black"
+  ],
+  "sequence_rmse_m": {
+    "depthpro": 0.7785,
+    "unidepth": 0.3495,
+    "stmap": 0.4504,
+    "cadfds": 0.3343
+  },
+  "sequence_rmse_m_by_color": {
+    "red": {
+      "depthpro": 0.6241,
+      "unidepth": 0.3047,
+      "stmap": 0.3568,
+      "cadfds": 0.2947
+    },
+    "green": {
+      "depthpro": 0.7936,
+      "unidepth": 0.3528,
+      "stmap": 0.6641,
+      "cadfds": 0.2024
+    },
+    "blue": {
+      "depthpro": 1.0876,
+      "unidepth": 0.3139,
+      "stmap": 0.3177,
+      "cadfds": 0.3362
+    },
+    "black": {
+      "depthpro": 0.4713,
+      "unidepth": 0.4157,
+      "stmap": 0.3769,
+      "cadfds": 0.4541
+    }
+  },
+  "test480_rmse_m": {
+    "opt": 0.3372,
+    "stmap": 0.4784,
+    "unidepth": 1.8795,
+    "unidepth_lin": 0.357,
+    "depthpro": 0.8708,
+    "depthpro_lin": 0.7506
+  },
+  "methods": {
+    "depthpro": "Depth Pro (Bochkovskii et al., 2024)",
+    "unidepth": "UniDepthV2 (Piccinelli et al., 2025)",
+    "stmap": "STMAP (Subbarao & Surya, 1994)",
+    "cadfds": "CA-DFDS (ours)"
+  },
+  "video": {
+    "file": "video.mp4",
+    "seconds": 52.07,
+    "mb": 4.45
+  },
+  "video_short": {
+    "file": "video_short.mp4",
+    "seconds": 13.5,
+    "mb": 1.2
+  }
+}

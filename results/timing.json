@@ -11,5 +11,11 @@
     "mean_ms": 2263.39,
     "median_ms": 2264.38,
     "fps": 0.44
+  },
+  "stmap": {
+    "mean_ms": 139.1,
+    "median_ms": 139.38,
+    "fps": 7.19,
+    "note": "two images (f/1.4 + f/22) read + mask box + sigma, CPU single thread (scripts/stmap_eval.py --timing)"
   }
 }

@@ -1,0 +1,46 @@
+{
+  "source": "results/timing_full_pipeline.json (scripts/m3_timing_full_pipeline.py), RTX 5080 + Intel Core Ultra 7 265K, firetruck_red 30 images",
+  "pipelines": {
+    "cpu_full": {
+      "total_median_ms": 2407.09,
+      "fps": 0.42,
+      "ciecam02_median_ms": 2284.46,
+      "rmse_m": 0.2764
+    },
+    "cpu_crop": {
+      "total_median_ms": 1313.35,
+      "fps": 0.71,
+      "ciecam02_median_ms": 1181.02,
+      "rmse_m": 0.2764
+    },
+    "gpu_fp64_full": {
+      "total_median_ms": 95.57,
+      "fps": 10.77,
+      "ciecam02_median_ms": 17.83,
+      "rmse_m": 0.2764
+    },
+    "gpu_fp64_crop": {
+      "total_median_ms": 86.65,
+      "fps": 11.66,
+      "ciecam02_median_ms": 8.3,
+      "rmse_m": 0.2764
+    },
+    "gpu_fp32_full": {
+      "total_median_ms": 72.92,
+      "fps": 14.11,
+      "ciecam02_median_ms": 2.91,
+      "rmse_m": 0.2764
+    },
+    "gpu_fp32_crop": {
+      "total_median_ms": 78.47,
+      "fps": 12.77,
+      "ciecam02_median_ms": 1.68,
+      "rmse_m": 0.2764
+    }
+  },
+  "auto_mask": {
+    "yolo_detect": 10.25,
+    "sam": 106.1,
+    "wall_incl_io": 198.31
+  }
+}

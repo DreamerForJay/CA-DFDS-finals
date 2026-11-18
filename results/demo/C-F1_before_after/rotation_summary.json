@@ -1,0 +1,45 @@
+{
+  "cadfds": {
+    "rmse_orig_m": 0.3372,
+    "rmse_rot_m": 0.3372,
+    "delta_m": 0.0,
+    "std_orig_m": 0.3326,
+    "std_rot_m": 0.3326
+  },
+  "stmap": {
+    "rmse_orig_m": 0.4784,
+    "rmse_rot_m": 0.7847,
+    "delta_m": 0.3063,
+    "std_orig_m": 0.4536,
+    "std_rot_m": 0.6243
+  },
+  "unidepth": {
+    "rmse_orig_m": 0.357,
+    "rmse_rot_m": 3.0125,
+    "delta_m": 2.6554,
+    "std_orig_m": 0.3361,
+    "std_rot_m": 1.2511
+  },
+  "depthpro": {
+    "rmse_orig_m": 0.7506,
+    "rmse_rot_m": 1.5238,
+    "delta_m": 0.7732,
+    "std_orig_m": 0.7413,
+    "std_rot_m": 0.8159
+  },
+  "unidepth_raw": {
+    "rmse_orig_m": 1.8795,
+    "rmse_rot_m": 1.6083,
+    "delta_m": -0.2711,
+    "std_orig_m": 0.4211,
+    "std_rot_m": 1.2216
+  },
+  "depthpro_raw": {
+    "rmse_orig_m": 0.8708,
+    "rmse_rot_m": 1.8266,
+    "delta_m": 0.9559,
+    "std_orig_m": 0.7835,
+    "std_rot_m": 0.9382
+  },
+  "_max_abs_cadfds_change_m": 0.0
+}

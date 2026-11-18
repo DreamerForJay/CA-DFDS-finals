@@ -81,5 +81,18 @@
     "r2": 0.9088,
     "formula": "d_cm = c1*pred_m + c0 (linear calibration on the calibration set)"
   },
+  "stmap": {
+    "coef_cm": [
+      5127.990596252315,
+      -6126.278181718285,
+      1882.218989733598
+    ],
+    "r2": 0.9361,
+    "sigma_range": [
+      0.23337866520370873,
+      0.480198707449763
+    ],
+    "formula": "d_cm = c2*s^2 + c1*s + c0, s = STMAP sigma (f/1.4 + f/22 pair, mask bounding box)"
+  },
   "_note": "calib = cal_white + cal_gray + cal_black, per-distance mean, quadratic fit (scripts/build_calibrations.py)"
 }

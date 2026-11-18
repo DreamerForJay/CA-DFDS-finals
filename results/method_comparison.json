@@ -14,7 +14,8 @@
     "unidepth": "UniDepth V2 (raw)",
     "unidepth_lin": "UniDepth V2 (linear calib.)",
     "depthpro": "ML-Depth-Pro (raw)",
-    "depthpro_lin": "ML-Depth-Pro (linear calib.)"
+    "depthpro_lin": "ML-Depth-Pro (linear calib.)",
+    "stmap": "STMAP (Subbarao 1994, two apertures)"
   },
   "hand": {
     "overall_rmse_m": {
@@ -25,7 +26,8 @@
       "unidepth": 1.8795,
       "unidepth_lin": 0.357,
       "depthpro": 0.8708,
-      "depthpro_lin": 0.7506
+      "depthpro_lin": 0.7506,
+      "stmap": 0.4784
     },
     "overall_mae_m": {
       "opt": 0.2698,
@@ -35,7 +37,8 @@
       "unidepth": 1.8317,
       "unidepth_lin": 0.2881,
       "depthpro": 0.6778,
-      "depthpro_lin": 0.4762
+      "depthpro_lin": 0.4762,
+      "stmap": 0.3485
     },
     "overall_bias_m": {
       "opt": 0.0555,
@@ -45,7 +48,8 @@
       "unidepth": 1.8317,
       "unidepth_lin": -0.1205,
       "depthpro": -0.38,
-      "depthpro_lin": 0.118
+      "depthpro_lin": 0.118,
+      "stmap": -0.1522
     },
     "per_color_rmse_m": {
       "opt": {
@@ -95,6 +99,12 @@
         "green": 0.827,
         "blue": 0.9783,
         "black": 0.439
+      },
+      "stmap": {
+        "red": 0.4117,
+        "green": 0.6801,
+        "blue": 0.3442,
+        "black": 0.4063
       }
     },
     "per_distance_rmse_m": {
@@ -209,6 +219,20 @@
         "5.7": 0.2294,
         "6.2": 0.3536,
         "6.7": 0.7483
+      },
+      "stmap": {
+        "1.2": 1.0482,
+        "1.7": 0.1294,
+        "2.2": 0.1728,
+        "2.7": 0.4505,
+        "3.2": 0.5979,
+        "3.7": 0.3416,
+        "4.2": 0.1971,
+        "4.7": 0.3933,
+        "5.2": 0.3492,
+        "5.7": 0.5046,
+        "6.2": 0.4149,
+        "6.7": 0.4263
       }
     },
     "n_failed": {
@@ -219,7 +243,8 @@
       "unidepth": 0,
       "unidepth_lin": 0,
       "depthpro": 0,
-      "depthpro_lin": 0
+      "depthpro_lin": 0,
+      "stmap": 0
     }
   },
   "auto": {
@@ -436,7 +461,8 @@
     "unidepth": 1.8795,
     "unidepth_lin": 0.357,
     "depthpro": 0.8708,
-    "depthpro_lin": 0.7506
+    "depthpro_lin": 0.7506,
+    "stmap": 0.4784
   },
   "auto_mask_quality": {
     "fallback": {
@@ -481,7 +507,8 @@
     "unidepth": 26.8,
     "unidepth_lin": 26.8,
     "depthpro": 260.0,
-    "depthpro_lin": 260.0
+    "depthpro_lin": 260.0,
+    "stmap": 139.38
   },
   "time_ms_mask": {
     "yolo": 13.1,

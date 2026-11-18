@@ -46,6 +46,18 @@ if os.path.exists(dc):
         out[k + '_lin'] = {'model': k, 'coef_cm': [float(c) for c in co], 'r2': round(float(r2), 4),
                            'formula': 'd_cm = c1*pred_m + c0 (linear calibration on the calibration set)'}
         print(f'{k}_lin R2={r2:.4f} coef={co}')
-out['_note'] = 'calib = cal_white + cal_gray + cal_black, per-distance mean, quadratic fit (scripts/build_calibrations.py)'
+# STMAP (two-aperture spatial-domain DFD, features/stmap_cal.npz from scripts/stmap_eval.py): same protocol, quadratic
+sf = os.path.join(ROOT, 'features', 'stmap_cal.npz')
+if os.path.exists(sf):
+    z = np.load(sf); X, Y = [], []
+    for c in ('white', 'gray', 'black'):
+        for d in sorted(set(z['dist_cm'][z['color'] == c])):
+            s = z['sigma'][(z['color'] == c) & (z['dist_cm'] == d)]
+            X.append(float(np.nanmean(s))); Y.append(float(d))
+    co, r2 = C.fit_quadratic(np.array(X), np.array(Y))
+    out['stmap'] = {'coef_cm': [float(c) for c in co], 'r2': round(r2, 4), 'sigma_range': [min(X), max(X)],
+                    'formula': 'd_cm = c2*s^2 + c1*s + c0, s = STMAP sigma (f/1.4 + f/22 pair, mask bounding box)'}
+    print(f'stmap   R2={r2:.4f} coef={co}')
+out['_note'] ='calib = cal_white + cal_gray + cal_black, per-distance mean, quadratic fit (scripts/build_calibrations.py)'
 json.dump(out, open(os.path.join(ROOT, 'results', 'calibration_methods.json'), 'w', encoding='utf-8'), indent=2, ensure_ascii=False)
 print('saved results/calibration_methods.json')

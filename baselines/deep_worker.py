@@ -180,7 +180,7 @@ def sam(image, point, out, box=None, img=None, reuse=False):
     return {'mask': out, 'ms': ms, 'score': float(scores[k]), 'area': int(m.sum())}
 
 
-def depth(model, image, mask):
+def depth(model, image, mask, return_map=False):
     img = imread(image); H, W = img.shape[:2]
     m = np.load(mask) > 0
     if m.shape != (H, W):
@@ -206,7 +206,10 @@ def depth(model, image, mask):
     if d.shape != (H, W):
         d = cv2.resize(d, (W, H), interpolation=cv2.INTER_LINEAR)
     v = d[m]; v = v[np.isfinite(v)]
-    return {'median_m': float(np.median(v)), 'mean_m': float(v.mean()), 'ms': ms}
+    out = {'median_m': float(np.median(v)), 'mean_m': float(v.mean()), 'ms': ms}
+    if return_map:   # full-resolution metric depth map (demo rendering only; not sent over the JSON protocol)
+        out['map'] = d
+    return out
 
 
 def handle(req):

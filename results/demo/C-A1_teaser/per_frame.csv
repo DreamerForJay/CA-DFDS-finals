@@ -1,0 +1,13 @@
+﻿frame,color,T,shot,gt_m,cadfds_m,err_m,sigma,image
+0,red,12,1,6.7,6.2304,-0.4696,6.7671,firetruck_red\Test_dataset_Focus1500cm_f1.4_f22.0\T12\R\D6.7_shot01.png
+1,red,11,1,6.2,5.6509,-0.5491,5.5023,firetruck_red\Test_dataset_Focus1500cm_f1.4_f22.0\T11\R\D6.2_shot01.png
+2,red,10,1,5.7,5.2676,-0.4324,4.8456,firetruck_red\Test_dataset_Focus1500cm_f1.4_f22.0\T10\R\D5.7_shot01.png
+3,red,9,1,5.2,4.8882,-0.3118,4.2742,firetruck_red\Test_dataset_Focus1500cm_f1.4_f22.0\T09\R\D5.2_shot01.png
+4,red,8,1,4.7,4.5253,-0.1747,3.7795,firetruck_red\Test_dataset_Focus1500cm_f1.4_f22.0\T08\R\D4.7_shot01.png
+5,red,7,1,4.2,4.2437,0.0437,3.4227,firetruck_red\Test_dataset_Focus1500cm_f1.4_f22.0\T07\R\D4.2_shot01.png
+6,red,6,1,3.7,3.7355,0.0355,2.8257,firetruck_red\Test_dataset_Focus1500cm_f1.4_f22.0\T06\R\D3.7_shot01.png
+7,red,5,1,3.2,3.0406,-0.1594,2.0854,firetruck_red\Test_dataset_Focus1500cm_f1.4_f22.0\T05\R\D3.2_shot01.png
+8,red,4,1,2.7,2.5075,-0.1925,1.5635,firetruck_red\Test_dataset_Focus1500cm_f1.4_f22.0\T04\R\D2.7_shot01.png
+9,red,3,1,2.2,1.9969,-0.2031,1.0932,firetruck_red\Test_dataset_Focus1500cm_f1.4_f22.0\T03\R\D2.2_shot01.png
+10,red,2,1,1.7,1.4357,-0.2643,0.6046,firetruck_red\Test_dataset_Focus1500cm_f1.4_f22.0\T02\R\D1.7_shot01.png
+11,red,1,1,1.2,1.3702,0.1702,0.5493,firetruck_red\Test_dataset_Focus1500cm_f1.4_f22.0\T01\R\D1.2_shot01.png

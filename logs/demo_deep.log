@@ -1,0 +1,25 @@
+device cuda
+D:\Carla-0.10.0-Win64-Shipping\.venv\Lib\site-packages\timm\models\layers\__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+D:\Carla-0.10.0-Win64-Shipping\Carla-0.10.0-Win64-Shipping\models_unidepth_repo\unidepth\utils\chamfer_distance.py:9: UserWarning: !! To run evaluation you need KNN. Please compile KNN: `cd unidepth/ops/knn with && bash compile.sh`.
+  warnings.warn(
+xFormers not available
+xFormers not available
+D:\Carla-0.10.0-Win64-Shipping\Carla-0.10.0-Win64-Shipping\models_unidepth_repo\unidepth\models\unidepthv2\unidepthv2.py:262: UserWarning: !! self.resolution_level not set, using default bounds !!
+  warnings.warn("!! self.resolution_level not set, using default bounds !!")
+Cannot import NystromAttention, you can not run original UniDepth. UniDepthV2 is available.
+Not loading pretrained weights for backbone
+EdgeGuidedLocalSSI reverts to a non cuda-optimized operation, you will experince large slowdown, please install it:  `cd ./unidepth/ops/extract_patches && bash compile.sh`
+40/480 red T04 gt=2.7 uni_rot=2.3374 dp_rot=1.8564 (18s)
+80/480 red T08 gt=4.7 uni_rot=2.5319 dp_rot=2.8477 (35s)
+120/480 red T12 gt=6.7 uni_rot=3.7183 dp_rot=3.3281 (53s)
+160/480 green T04 gt=2.7 uni_rot=1.9372 dp_rot=1.9521 (70s)
+200/480 green T08 gt=4.7 uni_rot=2.9717 dp_rot=2.8047 (88s)
+240/480 green T12 gt=6.7 uni_rot=4.6967 dp_rot=3.2617 (106s)
+280/480 blue T04 gt=2.7 uni_rot=2.0991 dp_rot=1.9482 (123s)
+320/480 blue T08 gt=4.7 uni_rot=2.7521 dp_rot=2.8223 (141s)
+360/480 blue T12 gt=6.7 uni_rot=3.83 dp_rot=3.3418 (158s)
+400/480 black T04 gt=2.7 uni_rot=1.4124 dp_rot=1.5146 (176s)
+440/480 black T08 gt=4.7 uni_rot=3.3962 dp_rot=2.7715 (194s)
+480/480 black T12 gt=6.7 uni_rot=4.3607 dp_rot=3.0078 (213s)
+saved d:\Carla-0.10.0-Win64-Shipping\CA-DFDS-finals\results\demo\rotation_deep.csv

@@ -24,8 +24,15 @@ deep_by = {key(r['path']): r for r in deep}
 colors = sorted({r['color'] for r in deep}, key=['red', 'green', 'blue', 'black'].index)
 NAMES = {'opt': 'CA-DFDS (paper weights)', 'reopt5': 'CA-DFDS re-optimized eq. 5', 'jonly': 'CA-DFDS J only',
          'gray': 'Grayscale DFD', 'unidepth': 'UniDepth V2 (raw)', 'unidepth_lin': 'UniDepth V2 (linear calib.)',
-         'depthpro': 'ML-Depth-Pro (raw)', 'depthpro_lin': 'ML-Depth-Pro (linear calib.)'}
+         'depthpro': 'ML-Depth-Pro (raw)', 'depthpro_lin': 'ML-Depth-Pro (linear calib.)',
+         'stmap': 'STMAP (Subbarao 1994, two apertures)'}
 M = [k for k in NAMES if k in CAL or k in ('unidepth', 'depthpro')]
+M_AUTO = [k for k in M if k != 'stmap']   # STMAP has no segmentation; it uses the hand-mask bounding box, so only in the hand block
+_sf = R('features', 'stmap_test.npz')
+STMAP = {}
+if os.path.exists(_sf):
+    _z = np.load(_sf)
+    STMAP = {key(str(p)): (float(s), float(sr)) for p, s, sr in zip(_z['path'], _z['sigma'], _z['sigma_rot'])}
 fnum = lambda v: float(v) if v not in (None, '') else np.nan
 
 
@@ -36,6 +43,8 @@ def predict(z, i, d, mask):
             x = z['gray'][i] if k == 'gray' else C.sigma_eq5(z['cov'][i], CAL[k]['weights'])
             out[k] = float(np.polyval(CAL[k]['coef_cm'], x)) / 100 if np.isfinite(x) else np.nan
     suf = '' if mask == 'hand' else '_auto'
+    if mask == 'hand' and 'stmap' in CAL and key(d['path']) in STMAP:
+        out['stmap'] = float(np.polyval(CAL['stmap']['coef_cm'], STMAP[key(d['path'])][0])) / 100
     for k in ('unidepth', 'depthpro'):
         raw = fnum(d.get(f'{k}{suf}_m'))
         out[k] = raw
@@ -67,7 +76,7 @@ for mask in ('hand', 'auto'):
     if not rs:
         continue
     blk = {'overall_rmse_m': {}, 'overall_mae_m': {}, 'overall_bias_m': {}, 'per_color_rmse_m': {}, 'per_distance_rmse_m': {}, 'n_failed': {}}
-    for k in M:
+    for k in (M if mask == 'hand' else M_AUTO):
         e = np.array([r[k] - r['gt_m'] for r in rs])
         blk['n_failed'][k] = int(np.isnan(e).sum())
         blk['overall_rmse_m'][k] = round(rm(e), 4); blk['overall_mae_m'][k] = round(float(np.nanmean(np.abs(e))), 4)
@@ -101,6 +110,8 @@ med = lambda col: round(float(np.median([fnum(r.get(col)) for r in deep if r.get
 res['time_ms'] = {'opt': tm['ciecam02']['median_ms'], 'reopt5': tm['ciecam02']['median_ms'], 'jonly': tm['ciecam02']['median_ms'],
                   'gray': tm['gray']['median_ms'], 'unidepth': med('unidepth_ms'), 'unidepth_lin': med('unidepth_ms'),
                   'depthpro': med('depthpro_ms'), 'depthpro_lin': med('depthpro_ms')}
+if 'stmap' in tm:
+    res['time_ms']['stmap'] = tm['stmap']['median_ms']
 if 'yolo_ms' in deep[0]:
     res['time_ms_mask'] = {'yolo': med('yolo_ms'), 'sam': med('auto_sam_ms')}
 res['time_note'] = 'CA-DFDS/grayscale: CPU single thread, full image (results/timing.json); deep models: RTX 5080 GPU, inference only (median)'
@@ -117,9 +128,9 @@ for mask, title in (('hand', 'Hand-drawn masks'), ('auto', 'Fully automatic mask
         continue
     b = res[mask]
     L += [f'### {title}', '', '| Method | ' + ' | '.join(colors) + ' | Overall RMSE | MAE | Mean bias | Time per image |', '|---' * (len(colors) + 5) + '|']
-    for k in M:
+    for k in (M if mask == 'hand' else M_AUTO):
         L.append(f'| {NAMES[k]} | ' + ' | '.join(f"{b['per_color_rmse_m'][k][c]:.3f}" for c in colors) +
-                 f" | **{b['overall_rmse_m'][k]:.3f}** | {b['overall_mae_m'][k]:.3f} | {b['overall_bias_m'][k]:+.3f} | {res['time_ms'][k]:.0f} ms |")
+                 f" | **{b['overall_rmse_m'][k]:.3f}** | {b['overall_mae_m'][k]:.3f} | {b['overall_bias_m'][k]:+.3f} | {(f"{res['time_ms'][k]:.0f} ms" if k in res['time_ms'] else '—')} |")
     L.append('')
 open(R('results', 'method_comparison.md'), 'w', encoding='utf-8').write('\n'.join(L))
 print('\n'.join(L))

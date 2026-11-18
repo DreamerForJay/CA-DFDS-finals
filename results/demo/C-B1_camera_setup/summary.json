@@ -1,0 +1,21 @@
+{
+  "asset": "C-B1 camera setup",
+  "camera": {
+    "lens_mm": 40.0,
+    "sensor_mm": 36.0,
+    "width_px": 2048,
+    "height_px": 1536,
+    "fstops": [
+      1.4,
+      22.0
+    ],
+    "focus_m": 15.0,
+    "camera_height_m": 0.8,
+    "camera_x_offset_m": 4.0,
+    "distances_m": "1.0–7.0 (calibration), 1.2–6.7 (test, masks T1–T12)",
+    "source": "Carla-0.10.0-Win64-Shipping/get_dataset2.py (LENS_FOCAL_LENGTH_MM, FOCUS_DISTANCE_CM, CAMERA_HEIGHT, CAMERA_X_OFFSET)"
+  },
+  "fov_h_deg": 48.46,
+  "fov_v_deg": 37.3,
+  "focal_px": 2275.6
+}

@@ -4,6 +4,26 @@
 
 ---
 
+## 2026-11-18｜Demo 素材（DEMO_ASSETS P0＋P1）與網頁素材
+
+執行者：Claude Code（實驗室 RTX 5080 主機），依 repo 擁有者新增的 `docs/DEMO_ASSETS.md`
+
+- **新增 STMAP 基準**（Subbarao & Surya 1994，兩張影像 f/1.4＋f/22）：`scripts/stmap_eval.py`，公式同學長 `stmap_dfds_rotation_eval.py`；校正協定與其他方法相同（白＋灰＋黑、二次）。
+  - `build_calibrations.py` 新增 `stmap`；`compare_methods.py` 手繪遮罩表新增 STMAP 一列；`results/timing.json` 新增 `stmap`（139 ms／張，CPU）。原有數字未變。
+  - 480 張 RMSE 0.478 m（RESULTS 補充 S）。
+- **旋轉 180° 實驗**：`baselines/demo_deep.py`（UniDepth／Depth Pro 對 480 張旋轉影像推論＋demo 用深度圖），CA-DFDS 重新計算旋轉後特徵。
+  - CA-DFDS 0.337 → 0.337 m；STMAP 0.478 → 0.785；UniDepth（線性校正）0.357 → 3.013；Depth Pro（線性校正）0.751 → 1.524（RESULTS 補充 S）。
+  - `deep_worker.depth()` 新增 `return_map` 參數（預設關閉，GUI 行為不變）。
+- **素材產生器** `scripts/make_demo_assets.py` → `results/demo/<代號>/`（影片 1080p H.264、精華版、首幀、關鍵影格、per_frame.csv、summary.json、README.md）：
+  - C-A1 Teaser 三聯畫面；C-C1 輸入→輸出 7 步 × 近／中／遠；C-E1 四方法 1×4 同步比較＋逐幀誤差曲線＋片尾 RMSE 卡；C-F1 旋轉 180° 與灰階 vs CIECAM02 拖曳對照；
+  - C-B1 相機配置示意圖；C-D1 散焦理論曲線＋動畫＋f/1.4 vs f/22 成對圖；C-H1 排行榜；C-I1 分析圖＋`charts.json`；C-M1 計時圖；C-K1 失敗案例說明。
+  - 總表：`results/demo/README.md`。所有數字出自 `results/` 的結果檔；影片裡的 12 個距離是資料集分別拍攝的影像，已在畫面與 README 註明非連續拍攝。
+- **網頁素材**：`scripts/export_web_assets.py` 把壓縮版（JPG、影片、資料檔、`manifest.json`，共約 46 MB）輸出到網頁 repo `DreamerForJay/CA-DFDS` 的 `docs/assets/demo/`，並推上 GitHub（未改 `index.html`）。
+- 文件：DEMO_ASSETS 狀態欄、NEXT_EXPERIMENTS V1／V4／V5／V7／V9、RESULTS 補充 S、ARCHITECTURE 4.1／4.3、MATERIALS_NEEDED（CIECAM02 GPU 時間、散焦參數、自動遮罩時間已有數字）、AGENTS。
+- 尚未完成：C-B1 CARLA 第三人稱影片、C-J1／C-L1 連續情境（需開 CARLA 渲染）、C-G1 GUI 錄影、C-R1 實拍。
+
+---
+
 ## 2026-11-16｜M7 數據報告（投影片格式）
 
 執行者：Claude Code（實驗室 RTX 5080 主機），應 repo 擁有者要求

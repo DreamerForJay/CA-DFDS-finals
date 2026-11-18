@@ -1,0 +1,23 @@
+{
+  "asset": "C-A1 teaser",
+  "frames": 12,
+  "color": "red",
+  "distance_range_m": [
+    1.2,
+    6.7
+  ],
+  "seq_rmse_m": 0.2947,
+  "seq_mean_abs_err_m": 0.2505,
+  "test480_rmse_m": 0.3372,
+  "calibration": "results/calibration_methods.json opt",
+  "video": {
+    "file": "video.mp4",
+    "seconds": 20.0,
+    "mb": 2.24
+  },
+  "video_short": {
+    "file": "video_short.mp4",
+    "seconds": 13.2,
+    "mb": 1.75
+  }
+}
