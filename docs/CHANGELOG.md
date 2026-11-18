@@ -1,6 +1,33 @@
 # 變更紀錄（CHANGELOG）
 
+## 2026-11-18｜本機研究專案頁改版
+
+執行者：Codex
+
+- 依作品說明書重整 `web_demo/index.html`、`style.css` 和 `demo.js`，以研究動機、三項技術貢獻、完整系統架構與基準評測組織內容。說明 SAM 2、YOLO11m → SAM ViT-B 與式 (5)／(7) 的適用範圍。
+- `web_demo.py` 提供本機作品說明書 PDF 與 48 個樣本的遮罩外接框。圖檔放在 `web_demo/figures/`，`scripts/make_web_replays.py` 可重建外接框資料。
+- Teaser 採整欄寬度。可見的指定影片和同步比較會自動播放，手動選擇距離時停止同步換幀，支援系統的減少動態設定。
+- 更新網頁操作影片，驗證 1440 px 桌面、390 px 手機、PDF Range、48 框座標、遮罩與誤差圖、滑桿及本機 CPU 重跑。
+
+
+## 2026-11-18 · GitHub Pages 互動 Demo 與情境素材
+
+- [互動 Demo](https://dreamerforjay.github.io/CA-DFDS/demo/) 使用既有 C-E1 逐幀 CSV 和 RMSE 摘要，加入可點擊的影片誤差曲線。
+- [情境重播素材](https://drive.google.com/file/d/1vTQBF6ip9IP5NBCEDEwuGuHkvaHctTx7/view) 含三段 CARLA 離散樣本回放、逐幀 CSV 和本機網頁操作錄影。可用 `scripts/make_web_replays.py` 重建三段回放。
+
 每次有更動請在**最上方**新增一筆：日期、執行者、做了什麼、影響的檔案、結果。規則見 [AGENTS.md](../AGENTS.md)。
+
+---
+
+## 2026-11-18｜CA-DFDS 本機互動研究展示
+
+執行者：Codex
+
+- `run_gui_new.bat` 預設開啟 http://127.0.0.1:8765/，具參數的既有桌面操作及 `--desktop` 仍可使用。
+- `web_demo.py` 與 `web_demo/` 提供本機展示、四車色同步比較、逐步推論、拖曳對照、排行榜、誤差分析、失敗案例及效能表。可使用資料集遮罩現算四個 DFD 變體。
+- `scripts/make_web_replays.py` 用本機 CARLA 原圖與逐幀估測輸出接近、往返與四車色三段 H.264 影片及 CSV，輸出到 `results/demo/scenario_replays/`。三段影片為離散影像回放。另錄製 18 秒網頁操作，包含 CUDA 測距與拖曳對照。
+- 測試四車色的 CPU 路徑與 CUDA FP32 路徑，驗證影片的 HTTP Range 跳轉。量測條件沿用既有評測，網頁顯示的即時數值是單張試跑耗時。
+- 側面與俯視提供拍攝示意，停車場入庫及倉儲 AGV 保留為待驗證的應用情境。
 
 ---
 

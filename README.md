@@ -8,7 +8,7 @@
 > 📌 **接手者（AI／同學）請先讀 [AGENTS.md](AGENTS.md)**：目前進度、協作規則、Git 身分、Google Drive 同步方式。變更紀錄見 [docs/CHANGELOG.md](docs/CHANGELOG.md)。
 > 2026-11-15：任務 A–G 已全部完成，結果見 [RESULTS.md](RESULTS.md) 與 [docs/LAB_REPORT_2026-11-15.md](docs/LAB_REPORT_2026-11-15.md)。
 > 🖥️ **開啟 GUI demo**：
->   - **新版 v3**：點兩下 `run_gui_new.bat`（`gui_new_v3.py`）。可同時比較 CA-DFDS、灰階、UniDepth、Depth Pro，支援全自動遮罩與影片。
+>   - **新版 v3**：點兩下 `run_gui_new.bat` 開啟本機展示（http://127.0.0.1:8765/），支援四方法同步比較、CPU／CUDA 重跑與實驗影片。執行 `run_gui_new.bat --desktop` 可開啟原桌面介面，操作自動遮罩、自選影像與影片。
 >   - **學長舊版**：點兩下 `run_gui_old_senior.bat`（`gui_old_senior.py`）。只有論文權重單一方法。
 >   - 說明見 [docs/GUI_DEMO.md](docs/GUI_DEMO.md)。
 > 🧭 **整體架構、遮罩（SAM 或 YOLO）、與其他方法比較**：見 [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)。

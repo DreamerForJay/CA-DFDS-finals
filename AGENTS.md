@@ -9,7 +9,7 @@
 - **待決事項**：校正用黑色車影像已於 2026-07-31 重新產生，論文校正曲線（R² 0.969）無法以現有資料重現（現為 0.942）。需由學長／指導教授決定以哪一版為準（報告第 4 節）。
 - 改善計畫的剩餘項目見 [docs/IMPROVEMENT_PLAN.md](docs/IMPROVEMENT_PLAN.md)（⬜／🔄）。
 - 整體架構、遮罩方式（目前是手繪遮罩，SAM 已整合進 GUI，YOLO 尚未使用）、與其他方法比較：見 [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)。
-- GUI：**新版 v3** 是 `gui_new_v3.py`，點兩下 `run_gui_new.bat` 開啟；**學長舊版** 是 `gui_old_senior.py`（`run_gui_old_senior.bat`），保留作對照，不再修改。新版可同時比較 6 種方法，全自動遮罩（YOLO → SAM）、可調整的框、影片輸入，並偵測硬體。說明見 [docs/GUI_DEMO.md](docs/GUI_DEMO.md)。
+- GUI：**新版 v3** 是 `gui_new_v3.py`，使用 `run_gui_new.bat --desktop` 開啟（點兩下批次檔會開本機網頁）；**學長舊版** 是 `gui_old_senior.py`（`run_gui_old_senior.bat`），保留作對照，不再修改。新版可同時比較 6 種方法，全自動遮罩（YOLO → SAM）、可調整的框、影片輸入，並偵測硬體。說明見 [docs/GUI_DEMO.md](docs/GUI_DEMO.md)。
 - 方法比較（480 張，整體 RMSE）：CA-DFDS 0.337 m、灰階 0.362 m；UniDepth 原始 1.879 m、線性校正 **0.357 m**；Depth Pro 原始 0.871 m、線性校正 0.751 m；STMAP（兩張影像）0.478 m。全自動遮罩下 CA-DFDS 為 0.310 m（RESULTS 補充 H、J、S）。旋轉 180° 後 CA-DFDS 不變，UniDepth（線性校正）升到 3.01 m（補充 S）。
 - **2026-11-18 Demo 素材**（docs/DEMO_ASSETS.md 最優先）：`results/demo/`（總表 `results/demo/README.md`），產生：`scripts/stmap_eval.py` → `baselines/demo_deep.py`（torch）→ `scripts/make_demo_assets.py` → `scripts/export_web_assets.py`（輸出到網頁 repo `../CA-DFDS/docs/assets/demo/`，含 `manifest.json`）。網頁 repo `DreamerForJay/CA-DFDS` 已 clone 在 `D:\Carla-0.10.0-Win64-Shipping\CA-DFDS`（repo 內設定 DreamerForJay 身分）。尚缺：C-B1 CARLA 第三人稱影片、C-J1／C-L1 連續情境、C-G1 GUI 錄影。
 - **報告口徑**：公平比較時，CA-DFDS 與 UniDepth 準確度相當；CA-DFDS 近距離（≤ 3.7 m）較準，UniDepth 遠距離較準。不要寫「大幅勝過深度模型」。
@@ -90,7 +90,7 @@ python evaluate.py --calib features/cal_white.npz features/cal_gray.npz features
 ../.venv/Scripts/python.exe baselines/eval_deep.py --set test --sam --auto --out results/deep_baselines.csv
 ../.venv/Scripts/python.exe baselines/eval_deep.py --set calib --colors white gray black --out results/deep_calib.csv
 python scripts/build_calibrations.py && python scripts/eval_auto_mask.py && python scripts/compare_methods.py
-# 開啟新版 GUI v3（或點兩下 run_gui_new.bat）；學長舊版：gui_old_senior.py / run_gui_old_senior.bat
+# 開啟新版 GUI v3（run_gui_new.bat --desktop，無參數為本機網頁）；學長舊版：gui_old_senior.py / run_gui_old_senior.bat
 .venv-cadfds/Scripts/python.exe gui_new_v3.py
 # GUI 自動截圖
 python logs/gui_screenshots.py results <影像> <遮罩> [...]

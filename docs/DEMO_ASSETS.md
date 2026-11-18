@@ -66,7 +66,7 @@ results/demo/<代號>/
 | C-C1 | P0 | 輸入→輸出 | 近／中／遠 3 張：原圖 → SAM 2 遮罩 → J／a_c／b_c → 拉普拉斯清晰度熱圖 → σ → 距離 | 每步數值（JSON） | ✅ 11/18 `C-C1_input_output/`（7 步 × 3 距離；遮罩用資料集手繪，非 SAM 2） |
 | C-E1 | P0 | 方法同步比較 | 同序列 1×4：Depth Pro（2024）、UniDepthV2（2025）、STMAP（1994）、CA-DFDS；各格顯示估測距離 | 逐幀誤差曲線；片尾 RMSE 卡（與 `method_comparison.md` 一致） | ✅ 11/18 `C-E1_method_compare/`（STMAP 新實作，480 張 RMSE 0.478 m） |
 | C-F1 | P0 | 前後對照 | ①原始 vs. 旋轉 180°（各方法結果變化）②灰階清晰度 vs. CIECAM02 清晰度熱圖 | 顯示 RMSE 變化 | ✅ 11/18 `C-F1_before_after/`（旋轉後 CA-DFDS 不變、UniDepthV2 0.357→3.013 m） |
-| C-J1 | P1 | 情境結果牆 | S1 倒車接近、S2 前車往返、S3 多車色連續（含未參與校正車色） | 每段 per_frame.csv | ⬜ |
+| C-J1 | P1 | 情境結果牆 | S1 倒車接近、S2 前車往返、S3 多車色連續（含未參與校正車色） | 每段 per_frame.csv | 🔄 [接近、往返、四車色離散回放與 CSV](https://drive.google.com/file/d/1vTQBF6ip9IP5NBCEDEwuGuHkvaHctTx7/view)；連續 CARLA 渲染待完成 |
 | C-D1 | P1 | 方法步驟滑桿 | 距離游標 1–7 m 移動：對焦 7 m vs. 15 m 模糊量曲線同步變化；f/1.4 vs. f/22 | 理論曲線數據 | ✅ 11/18 `C-D1_defocus_theory/`（薄透鏡理論曲線＋動畫；f/1.4 vs f/22 同幀成對圖 `aperture_pairs/`） |
 | C-H1 | P1 | 排行榜表 | CARLA 480 張：各車色 RMSE；近距離實拍 RMSE（原始／旋轉）；方法附年份 | 與作品說明書、results 一致 | ✅ 11/18 `C-H1_leaderboard/`（CARLA 480 張＋旋轉；實拍數字不在表內） |
 | C-I1 | P1 | 分析圖 | 誤差 vs. 距離、19 色結果、曝光／紋理魯棒性 | 由 results 產生 | ✅ 11/18 `C-I1_analysis/`（PNG＋`charts.json`） |
@@ -79,4 +79,6 @@ results/demo/<代號>/
 情境 S1–S8 的設定細節見 `docs/DEMO_PLAN.md` 第七節。
 
 > **2026-11-18 產出**：素材總表與重點數字見 [`results/demo/README.md`](../results/demo/README.md)；網頁壓縮版已放到 CA-DFDS repo `docs/assets/demo/`（含 `manifest.json`），原始檔同步到 Google Drive `CA-DFDS-finals/results/demo/`。
-> 尚未完成：C-B1 的 CARLA 第三人稱影片、C-J1／C-L1 連續情境（需開 CARLA 重新渲染連續序列）、C-G1 GUI 錄影、C-R1 實拍。
+> 尚未完成：C-B1 的 CARLA 第三人稱影片、C-J1／C-L1 連續情境（需開 CARLA 重新渲染連續序列）、C-G1 桌面 GUI 錄影、C-R1 實拍。網頁操作錄影 `walkthrough.mp4` 隨離散回放包附上。
+
+[互動 Demo](https://dreamerforjay.github.io/CA-DFDS/demo/) 提供四方法同步比較、影片逐幀絕對誤差游標、距離與步驟滑桿、前後拖曳、排行榜、失敗案例與計時。48 張展示序列和 480 張評測集的 RMSE 分列，來源是 C-E1 的 `summary.json`。

@@ -21,8 +21,8 @@
 | — | （補充）與單張深度模型比較：UniDepth V2、ML-Depth-Pro，480 張，含原始輸出與線性校正 | — | ✅ 2026-11-16：線性校正後 UniDepth 0.357 m，與 CA-DFDS 0.337 m 相當；近距離 CA-DFDS 較準，遠距離 UniDepth 較準（RESULTS 補充 H、J） |
 | M10 | 自適應色彩權重（依遮罩內亮度、彩度選權重；不可用測試車色決定權重） | 低（研究延伸） | ⬜ |
 | V1 | Demo 影片：Teaser 三聯畫面（輸入＋遮罩＋距離｜清晰度熱圖｜估測距離 vs. GT 曲線） | 高 | ✅ 2026-11-18 `results/demo/C-A1_teaser/`（資料集 12 個距離，非連續拍攝） |
-| V2 | Demo 影片：S1 倒車接近 7→1 m、S2 前車 1.2↔6.7 m 往返 | 高 | ⬜ |
-| V3 | Demo 影片：S3 多車色連續（含未參與校正車色） | 高 | ⬜ |
+| V2 | Demo 影片：S1 倒車接近 7→1 m、S2 前車 1.2↔6.7 m 往返 | 高 | 🔄 本機網頁有離散影像回放，CARLA 連續序列待渲染 |
+| V3 | Demo 影片：S3 多車色連續（含未參與校正車色） | 高 | 🔄 本機網頁有四車色影像回放，連續序列待渲染 |
 | V4 | Demo 影片：四欄同步比較 Depth Pro（2024）／UniDepthV2（2025）／STMAP（1994）／CA-DFDS | 高 | ✅ 2026-11-18 `results/demo/C-E1_method_compare/`（STMAP 480 張 0.478 m，RESULTS 補充 S） |
 | V5 | Demo 影片：S6 旋轉 180° 同步並排 | 中 | ✅ 2026-11-18 `results/demo/C-F1_before_after/`（資料集影像，非連續序列） |
 | V6 | Demo 影片：S4 停車場入庫、S5 倉儲 AGV（1–3 m，驗證範圍內） | 中 | ⬜ |
